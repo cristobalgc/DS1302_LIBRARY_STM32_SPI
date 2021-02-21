@@ -1,0 +1,310 @@
+/******************************************************************************/
+/*                                                                            */
+/*   All rights reserved. Distribution or duplication without previous        */
+/*   written agreement of the owner prohibited.                               */
+/*                                                                            */
+/******************************************************************************/
+
+/** \file sw_component.h
+ *
+ * \brief Header file for RTC component
+ *
+ * Header file for RTC manager
+ *
+ * <table border="0" cellspacing="0" cellpadding="0">
+ * <tr> <td> Author:   </td> <td> C.Garcia   </td></tr>
+ * <tr> <td> Date:     </td> <td> 04/09/2018             </td></tr>
+ * </table>
+ * \n
+ * <table border="0" cellspacing="0" cellpadding="0">
+ * <tr> <td> COMPONENT: </td> <td> RTC   </td></tr>
+ * <tr> <td> SCOPE:     </td> <td> Public      </td></tr>
+ * <tr> <td> TARGET:    </td> <td> STM32F103        </td></tr>
+ * </table>
+ * \note
+ *
+ * \see
+ */
+
+#ifndef DS1302_H__H_
+#define DS1302_H__H_
+
+/******************************************************************************/
+/*                         Project Includes                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/*                 Definition of exported symbolic constants                  */
+/******************************************************************************/
+#define SPANISH_LANGUAGE
+
+#define DS1302_UNKNOWN	"Unknown"
+#define DS1302_AM "AM"
+#define DS1302_PM "PM"
+#define DS1302_EMPTY "  "
+
+#ifdef ENGLISH_LANGUAJE
+/* Days of a Week */
+#define DS1302_MONDAY "Mon"
+#define DS1302_TUESDAY "Tue"
+#define DS1302_WEDNESDAY "Wed"
+#define DS1302_THURSDAY "Thu"
+#define DS1302_FRIDAY "Fri"
+#define DS1302_SATURDAY "Sat"
+#define DS1302_SUNDAY "Sun"
+/* Months of a year */
+#define DS1302_JAN	"Jan"
+#define DS1302_FEB "Feb"
+#define DS1302_MAR "Mar"
+#define DS1302_APR "Apr"
+#define DS1302_MAY "May"
+#define DS1302_JUN "Jun"
+#define DS1302_JUL "Jul"
+#define DS1302_AUG "Aug"
+#define DS1302_SEP "Sep"
+#define DS1302_OCT "Oct"
+#define DS1302_NOV "Nov"
+#define DS1302_DIC "Dec"
+#endif
+
+#ifdef SPANISH_LANGUAGE
+/* Dias de la semana */
+#define DS1302_MONDAY "Lun"
+#define DS1302_TUESDAY "Mar"
+#define DS1302_WEDNESDAY "Mie"
+#define DS1302_THURSDAY "Jue"
+#define DS1302_FRIDAY "Vie"
+#define DS1302_SATURDAY "Sab"
+#define DS1302_SUNDAY "Dom"
+/* Meses del año */
+#define DS1302_JAN	"Ene"
+#define DS1302_FEB "Feb"
+#define DS1302_MAR "Mar"
+#define DS1302_APR "Abr"
+#define DS1302_MAY "May"
+#define DS1302_JUN "Jun"
+#define DS1302_JUL "Jul"
+#define DS1302_AUG "Ago"
+#define DS1302_SEP "Sep"
+#define DS1302_OCT "Oct"
+#define DS1302_NOV "Nov"
+#define DS1302_DIC "Dic"
+#endif
+
+//+++++++++++++++++++++++++++++++++++++++++ Set Register Names ++++++++++++++++++++++++++++++++++++++++++//
+//  Since the highest bit is always '1', the registers start at 0x80.  If the register is read, the      //|
+//  lowest bit should be '1'.                                                                            //|
+
+#define DS1302_SECONDS           (0x80U)
+#define DS1302_MINUTES           (0x82U)
+#define DS1302_HOURS             (0x84U)
+#define DS1302_DATE              (0x86U)
+#define DS1302_MONTH             (0x88U)
+#define DS1302_DAY               (0x8AU)
+#define DS1302_YEAR              (0x8CU)
+#define DS1302_CLOCK_BURST       (0xBEU)
+#define DS1302_CLOCK_BURST_WRITE (0xBEU)
+#define DS1302_CLOCK_BURST_READ  (0xBFU)
+#define DS1302_RAMSTART          (0xC0U)
+#define DS1302_RAMEND            (0xFCU)
+#define DS1302_RAM_BURST         (0xFEU)
+#define DS1302_RAM_BURST_WRITE   (0xFEU)
+#define DS1302_RAM_BURST_READ    (0xFFU)
+
+#define DS1302_ENABLE            (0x8EU)
+#define DS1302_TRICKLE           (0x90U)
+#define DS1302_TIMEOUT_MAX       (100U)
+/******************************************************************************/
+/*                Definition of exported function like macros                 */
+/******************************************************************************/
+
+/******************************************************************************/
+/*         Definition of exported types (typedef, enum, struct, union)        */
+/******************************************************************************/
+typedef enum ds1302_errors_e{
+	DS1302_NOK,
+	DS1302_OK,
+	DS1302_TIMEOUT
+}ds1302_errors_t;
+
+typedef struct rtc_s{
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Seconds:4;                                      // 4-bits to hold low decimal digits 0-9       //|    |
+			uint8_t Seconds10:3;                                    // 3-bits to hold high decimal digit 0-5       //|    |
+			uint8_t CH:1;                                           // 1-bit to hold CH = Clock Halt               //|    |
+		}b;
+	}seconds;
+
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Minutes:4;                                      // 4-bits to hold low decimal digits 0-9       //|    |
+			uint8_t Minutes10:3;                                    // 3-bits to hold high decimal digit 0-5       //|    |
+			uint8_t reserved1:1;
+		}b;
+	}Minutes;
+
+	union{
+
+		union{
+			uint8_t reg;
+			struct  {                                             // 24-hour section                             //|    |
+				uint8_t Hour:4;                                     // 4-bits to hold low decimal digits 0-9       //|    |
+				uint8_t Hour10:2;                                   // 2-bits to hold high decimal digits 0-2      //|    |
+				uint8_t reserved2:1;                                                                               //|    |
+				uint8_t hour_12_24:1;                               // 1-bit to set 0 for 24 hour format           //|    |
+			} b;
+		}h24;
+
+		union{
+			uint8_t reg;
+			struct  {                                             // 12 hour section                             //|    |
+				uint8_t Hour:4;                                     // 4-bits to hold low decimal digits 0-9       //|    |
+				uint8_t Hour10:1;                                   // 2-bits to hold high decimal digits 0-2      //|    |
+				uint8_t AM_PM:1;                                    // 1-bit to set AM or PM, 0 = AM, 1 = PM       //|    |
+				uint8_t reserved2:1;                                                                               //|    |
+				uint8_t hour_12_24:1;                               // 1-bit to set 1 for 12 hour format           //|    |
+			} b;
+		}h12;
+	}Hour;
+
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Date:4;                                         // 4-bits to hold low decimal digits 0-9       //|    |
+			uint8_t Date10:2;                                       // 2-bits to hold high decimal digits 0-3      //|    |
+			uint8_t reserved3:2;
+		}b;
+	}Date;
+
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Month:4;                                        // 4-bits to hold low decimal digits 0-9       //|    |
+			uint8_t Month10:1;                                      // 1-bits to hold high decimal digits 0-5      //|    |
+			uint8_t reserved4:3;
+		}b;
+	}Month;
+
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Day:3;                                          // 3-bits to hold decimal digit 1-7            //|    |
+			uint8_t reserved5:5;
+		}b;
+	}Weekday;
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t Year:4;                                         // 4-bits to hold high decimal digit 20        //|    |
+			uint8_t Year10:4;                                       // 4-bits to hold high decimal digit 14        //|    |
+		}b;
+	}Year;
+
+	union{
+		uint8_t reg;
+		struct{
+			uint8_t reserved6:7;                                                                                   //|    |
+			uint8_t WP:1;                                           // WP = Write Protect                          //|    |
+		}b;
+	}WriteProct;
+
+}rtc_T;
+
+typedef struct ds1302_gpio_cfg_s
+{
+	  GPIO_TypeDef *McuPort;
+	  uint16_t Pinreset;
+}ds1302_gpio_cfg_t;
+
+
+typedef struct ds1302_cfg_s{
+	SPI_HandleTypeDef *spi;
+	ds1302_gpio_cfg_t RstPin;
+}ds1302_cfg_T;
+
+typedef struct ds1302_datatime_s{
+	uint8_t seconds;
+	uint8_t hours;
+	uint8_t minutes;
+	uint8_t monthday;
+	char * month;
+	char *weekday;
+	char *amPm;
+	uint16_t year;
+}ds1302_datatime_t;
+
+typedef struct ds1302_data_s{
+	uint32_t delayTicks;
+	rtc_T received;
+	rtc_T send;
+	ds1302_datatime_t dateandtime;
+}ds1302_data_T;
+
+typedef struct ds1302_s{
+	ds1302_cfg_T cfg;
+	ds1302_data_T data;
+}ds1302_T;
+
+/******************************************************************************/
+/*                    Declaration of exported variables                       */
+/******************************************************************************/
+
+/******************************************************************************/
+/*                  Declaration of exported constant data                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/*               Declaration of exported function prototypes                  */
+/******************************************************************************/
+
+/**
+* Calculate the crc value with the data parameters
+*
+* \param[in]		data - Pointer to valid data array. Range: uint8_t = [0,0xFF]
+* \param[in]   		datasize - Size of the data array. Range: uint32_t = [0,0xFFFFFFFF]
+* \return           The crc value with the data parameters: Range: uint32_t
+*
+* \description
+* Calculate the crc value with the data parameters
+*
+**/
+extern ds1302_errors_t DS1302_Init(ds1302_T *ds1302, ds1302_cfg_T *config);
+
+/**
+  * @brief  Write a valid command into the driver .
+  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
+  * @param  Value : Data to be written
+  * @retval   None
+ */
+extern ds1302_errors_t DS1302_Write(ds1302_T *ds1302, uint8_t *data, uint8_t size);
+
+/**
+  * @brief  Set the date-time into the DS1302 chip.
+  * @param  seconds: Number of seconds to set into the driver.
+  * @param  minutes: Number of minutes to set into the driver.
+  * @param  hours: Number of hours to set into the driver.
+  * @param  dayofweek : Day of week to set into the driver.
+  * @param  dayofmonth: Day of month to set into the driver.
+  * @retval   None
+ */
+extern ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t dayofweek,
+		uint8_t dayofmonth, uint8_t month, int year);
+/**
+  * @brief  Writes one byte to the COMPASS/MAGNETO.
+  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
+  * @param  Value : Data to be written
+  * @retval   None
+ */
+extern ds1302_errors_t DS1302_Read(ds1302_T *ds1302, uint8_t RegisterAddr, uint8_t *ptr, uint8_t nbytes);
+/**
+  * @brief  Writes one byte to the COMPASS/MAGNETO.
+  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
+  * @param  Value : Data to be written
+  * @retval   None
+ */
+extern ds1302_errors_t DS1302_updateDateTime(ds1302_T *ds1302);
+
+#endif /* RTC_H */
