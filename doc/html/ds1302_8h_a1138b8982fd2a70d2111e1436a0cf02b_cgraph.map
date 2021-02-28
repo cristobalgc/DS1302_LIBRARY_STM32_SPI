@@ -1,0 +1,5 @@
+<map id="DS1302_Init" name="DS1302_Init">
+<area shape="rect" id="node1" title="Initialize the DS1302." alt="" coords="5,31,99,57"/>
+<area shape="rect" id="node2" href="$ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c" title="Calculate a delay in ticks of system frequency." alt="" coords="147,5,269,32"/>
+<area shape="rect" id="node3" href="$ds1302_8c.html#a0028874508f9272544bbeba530fd5d22" title="Write a valid command into the driver ." alt="" coords="155,56,261,83"/>
+</map>

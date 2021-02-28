@@ -1,0 +1,44 @@
+%\renewcommand\lstlistlistingname{Lista de códigos Arduino} 
+%		\renewcommand\lstlistingname{Código}
+		
+%\definecolor{mygray}{rgb}{0.47,0.47,0.33}
+\definecolor{myorange}{rgb}{0.8,0.4,0}
+\definecolor{myblue}{rgb}{0,0.4,0.7}
+
+%\definecolor{myorange}{rgb}{0.78,0.2,0}
+\definecolor{mygray}{rgb}{0.29,0.29,0.29}
+
+
+
+\lstset{ %
+  %backgroundcolor=\color{mywhite},  
+	language=C,
+  basicstyle=\ttfamily,       
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=t, 
+	belowcaptionskip=0.8cm,
+  commentstyle=\color{mygray},
+	deletekeywords={...},           
+  escapeinside={\%*}{*)},          
+  extendedchars=true,              
+  %frame=single,                    
+  keepspaces=true,                 
+  %keywordstyle=\color{myorange},
+	morekeywords=[1]{delay,digitalWrite,loop,setup},
+	morekeywords=[2]{HIGH,LOW,OUTPUT},
+  keywordstyle = [1]\color{myorange}\bfseries,
+	keywordstyle = [2]\color{myblue}\bfseries,
+  %numbers=left,                    
+  %numbersep=5pt,                   
+  %numberstyle=\tiny\color{mygray}, 
+  rulecolor=\color{black},         
+  %rulesepcolor=\color{myblue},
+  showspaces=false,                
+  showstringspaces=false,          
+  showtabs=false,                  
+  stepnumber=1,                    
+  stringstyle=\color{myorange},    
+  tabsize=2,                       
+  title=\lstname                   
+}   
