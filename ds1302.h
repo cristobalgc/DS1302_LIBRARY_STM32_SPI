@@ -5,11 +5,11 @@
 /*                                                                            */
 /******************************************************************************/
 
-/** \file sw_component.h
+/** \file ds1302.h
  *
- * \brief Header file for RTC component
+ * \brief Header file for DS1302 component
  *
- * Header file for RTC manager
+ * Header file for DS1302 manager
  *
  * <table border="0" cellspacing="0" cellpadding="0">
  * <tr> <td> Author:   </td> <td> C.Garcia   </td></tr>
@@ -17,26 +17,28 @@
  * </table>
  * \n
  * <table border="0" cellspacing="0" cellpadding="0">
- * <tr> <td> COMPONENT: </td> <td> RTC   </td></tr>
+ * <tr> <td> COMPONENT: </td> <td> DS1302    </td></tr>
  * <tr> <td> SCOPE:     </td> <td> Public      </td></tr>
- * <tr> <td> TARGET:    </td> <td> STM32F103        </td></tr>
+ * <tr> <td> TARGET:    </td> <td> MCU        </td></tr>
  * </table>
  * \note
  *
  * \see
  */
 
-#ifndef DS1302_H__H_
-#define DS1302_H__H_
+#ifndef DS_1302_H_
+#define DS_1302_H_
 
 /******************************************************************************/
 /*                         Project Includes                                   */
 /******************************************************************************/
-
+#include "stm32f1xx_hal.h"
 /******************************************************************************/
 /*                 Definition of exported symbolic constants                  */
 /******************************************************************************/
 #define SPANISH_LANGUAGE
+#define DS1302_24H_FORMAT	(0U)
+#define DS1302_12H_FORMAT	(1U)
 
 #define DS1302_UNKNOWN	"Unknown"
 #define DS1302_AM "AM"
@@ -122,27 +124,27 @@
 /*         Definition of exported types (typedef, enum, struct, union)        */
 /******************************************************************************/
 typedef enum ds1302_errors_e{
-	DS1302_NOK,
-	DS1302_OK,
-	DS1302_TIMEOUT
-}ds1302_errors_t;
+	DS1302_NOK,		/**< DS1302 ERROR */
+	DS1302_OK,		/**< DS1302 OK */
+	DS1302_TIMEOUT	/**< DS1302 timeout */
+} ds1302_errors_t;
 
-typedef struct rtc_s{
+typedef struct {
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Seconds:4;                                      // 4-bits to hold low decimal digits 0-9       //|    |
-			uint8_t Seconds10:3;                                    // 3-bits to hold high decimal digit 0-5       //|    |
-			uint8_t CH:1;                                           // 1-bit to hold CH = Clock Halt               //|    |
+			uint8_t Seconds:4;             /**< 4-bits to hold low decimal digits 0-9 */
+			uint8_t Seconds10:3;           /**< 3-bits to hold high decimal digit 0-5 */
+			uint8_t CH:1;                  /**< 1-bit to hold CH = Clock Halt */
 		}b;
 	}seconds;
 
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Minutes:4;                                      // 4-bits to hold low decimal digits 0-9       //|    |
-			uint8_t Minutes10:3;                                    // 3-bits to hold high decimal digit 0-5       //|    |
-			uint8_t reserved1:1;
+			uint8_t Minutes:4;          /**< 4-bits to hold low decimal digits 0-9 */
+			uint8_t Minutes10:3;        /**< 3-bits to hold high decimal digit 0-5 */
+			uint8_t reserved1:1;		/**< Reserved */
 		}b;
 	}Minutes;
 
@@ -150,22 +152,22 @@ typedef struct rtc_s{
 
 		union{
 			uint8_t reg;
-			struct  {                                             // 24-hour section                             //|    |
-				uint8_t Hour:4;                                     // 4-bits to hold low decimal digits 0-9       //|    |
-				uint8_t Hour10:2;                                   // 2-bits to hold high decimal digits 0-2      //|    |
-				uint8_t reserved2:1;                                                                               //|    |
-				uint8_t hour_12_24:1;                               // 1-bit to set 0 for 24 hour format           //|    |
+			struct  {                                             // 24-hour section
+				uint8_t Hour:4;          /**< 4-bits to hold low decimal digits 0-9 */
+				uint8_t Hour10:2;        /**< 2-bits to hold high decimal digits 0-2 */
+				uint8_t reserved2:1;     /**< Reserved */
+				uint8_t hour_12_24:1;    /**< 1-bit to set 0 for 24 hour format  */
 			} b;
 		}h24;
 
 		union{
 			uint8_t reg;
-			struct  {                                             // 12 hour section                             //|    |
-				uint8_t Hour:4;                                     // 4-bits to hold low decimal digits 0-9       //|    |
-				uint8_t Hour10:1;                                   // 2-bits to hold high decimal digits 0-2      //|    |
-				uint8_t AM_PM:1;                                    // 1-bit to set AM or PM, 0 = AM, 1 = PM       //|    |
-				uint8_t reserved2:1;                                                                               //|    |
-				uint8_t hour_12_24:1;                               // 1-bit to set 1 for 12 hour format           //|    |
+			struct  {                                             // 12 hour section
+				uint8_t Hour:4;         /**< 4-bits to hold low decimal digits 0-9 */
+				uint8_t Hour10:1;       /**< 2-bits to hold high decimal digits 0-2 */
+				uint8_t AM_PM:1;        /**< 1-bit to set AM or PM, 0 = AM, 1 = PM */
+				uint8_t reserved2:1;    /**< Reserved */
+				uint8_t hour_12_24:1;   /**< 1-bit to set 1 for 12 hour format  */
 			} b;
 		}h12;
 	}Hour;
@@ -173,41 +175,41 @@ typedef struct rtc_s{
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Date:4;                                         // 4-bits to hold low decimal digits 0-9       //|    |
-			uint8_t Date10:2;                                       // 2-bits to hold high decimal digits 0-3      //|    |
-			uint8_t reserved3:2;
+			uint8_t MonthDay:4;        	/**< 4-bits to hold low decimal digits 0-9 */
+			uint8_t MonthDay10:2;      	/**< 2-bits to hold high decimal digits 0-3 */
+			uint8_t reserved3:2;		/**< Reserved */
 		}b;
-	}Date;
+	}MonthDay;
 
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Month:4;                                        // 4-bits to hold low decimal digits 0-9       //|    |
-			uint8_t Month10:1;                                      // 1-bits to hold high decimal digits 0-5      //|    |
-			uint8_t reserved4:3;
+			uint8_t Month:4;        /**< 4-bits to hold low decimal digits 0-9 */
+			uint8_t Month10:1;      /**< 1-bits to hold high decimal digits 0-5 */
+			uint8_t reserved4:3;	/**< Reserved */
 		}b;
 	}Month;
 
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Day:3;                                          // 3-bits to hold decimal digit 1-7            //|    |
-			uint8_t reserved5:5;
+			uint8_t Day:3;          /**< 3-bits to hold decimal digit 1-7 */
+			uint8_t reserved5:5;	/**< Reserved */
 		}b;
 	}Weekday;
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t Year:4;                                         // 4-bits to hold high decimal digit 20        //|    |
-			uint8_t Year10:4;                                       // 4-bits to hold high decimal digit 14        //|    |
+			uint8_t Year:4;       /**< 4-bits to hold high decimal digit 20 */
+			uint8_t Year10:4;     /**< 4-bits to hold high decimal digit 14 */
 		}b;
 	}Year;
 
 	union{
 		uint8_t reg;
 		struct{
-			uint8_t reserved6:7;                                                                                   //|    |
-			uint8_t WP:1;                                           // WP = Write Protect                          //|    |
+			uint8_t reserved6:7;  /**< Reserved */
+			uint8_t WP:1;         /**< WP = Write Protect */
 		}b;
 	}WriteProct;
 
@@ -247,7 +249,6 @@ typedef struct ds1302_s{
 	ds1302_cfg_T cfg;
 	ds1302_data_T data;
 }ds1302_T;
-
 /******************************************************************************/
 /*                    Declaration of exported variables                       */
 /******************************************************************************/
@@ -261,50 +262,54 @@ typedef struct ds1302_s{
 /******************************************************************************/
 
 /**
-* Calculate the crc value with the data parameters
-*
-* \param[in]		data - Pointer to valid data array. Range: uint8_t = [0,0xFF]
-* \param[in]   		datasize - Size of the data array. Range: uint32_t = [0,0xFFFFFFFF]
-* \return           The crc value with the data parameters: Range: uint32_t
-*
-* \description
-* Calculate the crc value with the data parameters
-*
-**/
+  * @brief  Initialize the DS1302.
+  * @param[in]  ds1302: The DS1302 object.
+  * @param[in]  config: The configuration to be applied.
+  * @retval   None
+ */
 extern ds1302_errors_t DS1302_Init(ds1302_T *ds1302, ds1302_cfg_T *config);
 
 /**
   * @brief  Write a valid command into the driver .
-  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
-  * @param  Value : Data to be written
+  * @param[in]  ds1302: The DS1302 object.
+  * @param[in]  data: Data to be written
+  * @param[in]  size: Data size.
   * @retval   None
  */
 extern ds1302_errors_t DS1302_Write(ds1302_T *ds1302, uint8_t *data, uint8_t size);
 
 /**
   * @brief  Set the date-time into the DS1302 chip.
-  * @param  seconds: Number of seconds to set into the driver.
-  * @param  minutes: Number of minutes to set into the driver.
-  * @param  hours: Number of hours to set into the driver.
-  * @param  dayofweek : Day of week to set into the driver.
-  * @param  dayofmonth: Day of month to set into the driver.
+  * @param[in]  ds1302: The DS1302 object.
+  * @param[in]  seconds: Number of seconds to set into the driver.
+  * @param[in]  minutes: Number of minutes to set into the driver.
+  * @param[in]  hours: Number of hours to set into the driver.
+  * @param[in]  dayofweek : Day of week to set into the driver.
+  * @param[in]  dayofmonth: Day of month to set into the driver.
+  * @param[in]  month: Month to set into the driver.
+  * @param[in]  year: Year to set into the driver.
   * @retval   None
  */
 extern ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t dayofweek,
 		uint8_t dayofmonth, uint8_t month, int year);
+		
 /**
-  * @brief  Writes one byte to the COMPASS/MAGNETO.
-  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
-  * @param  Value : Data to be written
+  * @brief  Read from a register
+  * @param[in]  ds1302: The DS1302 object.
+  * @param[in]  RegisterAddr: specifies the ds1302 register to be written.
+  * @param[in]  ptr: Data to be written
+  * @param[in]  nbytes: Number of bytes to be written in to the driver
   * @retval   None
  */
 extern ds1302_errors_t DS1302_Read(ds1302_T *ds1302, uint8_t RegisterAddr, uint8_t *ptr, uint8_t nbytes);
+
 /**
-  * @brief  Writes one byte to the COMPASS/MAGNETO.
-  * @param  RegisterAddr specifies the COMPASS/MAGNETO register to be written.
-  * @param  Value : Data to be written
+  * @brief  Update the date and time of the DS1302 driver.
+  * @param[in]  ds1302: The DS1302 object.
   * @retval   None
  */
 extern ds1302_errors_t DS1302_updateDateTime(ds1302_T *ds1302);
 
-#endif /* RTC_H */
+
+#endif /* SW_COMPONENT */
+

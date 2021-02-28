@@ -1,0 +1,22 @@
+%\renewcommand\lstlistlistingname{Lista de códigos VHDL} 
+%		\renewcommand\lstlistingname{Código}
+
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{comment}{green!40!black!90}
+\lstset{
+  language     = VHDL,
+  basicstyle   = \ttfamily,
+	morekeywords=[1]{
+                  all,ALL,and,begin,case,end,entity,library,is,port,in,out,architecture,of,signal,or,Not,downto,if,then,process,use,when,elsif 
+									},
+  morekeywords=[2]{
+                  STD_LOGIC_VECTOR,STD_LOGIC,IEEE,STD_LOGIC_1164,NUMERIC_STD,STD_LOGIC_ARITH,STD_LOGIC_UNSIGNED,std_logic_vector,std_logic,STD_LOGIC_unsigned
+									},
+  morecomment=[l]--
+  keywordstyle = [1]\color{keyword}\bfseries,
+  keywordstyle = [2]\color{magenta}\bfseries,
+  commentstyle = \color{comment},
+	tabsize=3,
+	belowcaptionskip=0.8cm,
+}
+
