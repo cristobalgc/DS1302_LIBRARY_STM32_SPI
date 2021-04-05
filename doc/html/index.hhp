@@ -16,6 +16,8 @@ main="ds1302","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x1
 ds1302_8h_source.html
 ds1302_8c.html
 ds1302_8h.html
+_r_e_a_d_m_e_8md.html
+md__r_e_a_d_m_e.html
 structds1302__cfg__s.html
 structds1302__data__s.html
 structds1302__datatime__s.html
@@ -24,6 +26,7 @@ structds1302__s.html
 structrtc___t.html
 graph_legend.html
 index.html
+pages.html
 annotated.html
 classes.html
 functions.html
@@ -50,15 +53,15 @@ bdwn.png
 sync_on.png
 sync_off.png
 ds1302_8c__incl.png
-ds1302_8c_a1138b8982fd2a70d2111e1436a0cf02b_cgraph.png
+ds1302_8c_a2928227cab007176769a905f48c35694_cgraph.png
 ds1302_8c_a7a889df004633b201ebb9724797d65bd_cgraph.png
-ds1302_8c_aec1e6f0ee677dc893f4262efcbb35b37_cgraph.png
+ds1302_8c_a478d02e71ebd102a33cffbff5715e4da_cgraph.png
 ds1302_8c_a95d46c855f903e1bde6043dc1bd6ecd9_cgraph.png
 ds1302_8h__incl.png
 ds1302_8h__dep__incl.png
-ds1302_8h_a1138b8982fd2a70d2111e1436a0cf02b_cgraph.png
+ds1302_8h_a2928227cab007176769a905f48c35694_cgraph.png
 ds1302_8h_a7a889df004633b201ebb9724797d65bd_cgraph.png
-ds1302_8h_aec1e6f0ee677dc893f4262efcbb35b37_cgraph.png
+ds1302_8h_a478d02e71ebd102a33cffbff5715e4da_cgraph.png
 ds1302_8h_a95d46c855f903e1bde6043dc1bd6ecd9_cgraph.png
 structds1302__cfg__s__coll__graph.png
 structds1302__data__s__coll__graph.png

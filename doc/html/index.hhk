@@ -6,7 +6,7 @@
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5d8110ef72b469348bab2acc4dd73822"><param name="Name" value="__SPI_DIRECTION_1LINE_RX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5e479b31422b4accd9fe726721a34c48"><param name="Name" value="__SPI_DIRECTION_1LINE_TX"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a461f5a4ef0072f91b6976d2c81e66c3a"><param name="Name" value="amPm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#ac7f367f8a4c4959b88931b387d56552a"><param name="Name" value="amPm"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__s.html#a3f5aee7516ca9f9835b7010d904e79b8"><param name="Name" value="cfg"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__s.html#a0fe19a700094e2de83ed54d87098ea56"><param name="Name" value="data"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__data__s.html#a447580842cdfd85dedb917fd5400842c"><param name="Name" value="dateandtime"></OBJECT>
@@ -21,7 +21,15 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5bdf4dbb0b7445a4c898b62af03d47ae"><param name="Name" value="ds1302_AMPM"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ab46aba7a094e0d50ac0cc28f3c1d3cdc"><param name="Name" value="DS1302_12H"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2d3bba0ce70a3b9a7952f0363326db67"><param name="Name" value="ds1302_AMPM"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4038a042f95425d0719cadd92251d5fe"><param name="Name" value="DS1302_AMPM_MAX"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -41,11 +49,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a56dc6ddaeb29531cf3a627988879113b"><param name="Name" value="ds1302_days"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ada4d37191a001e3653d765360fd093bd"><param name="Name" value="ds1302_days"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c"><param name="Name" value="ds1302_getDelay"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#adc0a7594b4d3e4247df4aa7ee91bfbae"><param name="Name" value="ds1302_getDelay"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -53,7 +61,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a1138b8982fd2a70d2111e1436a0cf02b"><param name="Name" value="DS1302_Init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2928227cab007176769a905f48c35694"><param name="Name" value="DS1302_Init"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -77,7 +85,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4e1f9a9848b02d61b185339d9a11ef3b"><param name="Name" value="ds1302_months"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a87732e0829e6e42f23ad8515736b76e1"><param name="Name" value="ds1302_months"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a794cc4fa0606a41a4e0a85eb154a1dbc"><param name="Name" value="DS1302_MONTHS_MAX"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -85,11 +97,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578"><param name="Name" value="ds1302_Read1Byte"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2"><param name="Name" value="ds1302_Read1Byte"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4"><param name="Name" value="ds1302_ReadNBytes"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75"><param name="Name" value="ds1302_ReadNBytes"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -97,7 +109,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aec1e6f0ee677dc893f4262efcbb35b37"><param name="Name" value="DS1302_setTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a478d02e71ebd102a33cffbff5715e4da"><param name="Name" value="DS1302_setTime"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
@@ -105,11 +117,15 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a91b84bc22e83e9017a47409d121aca8f"><param name="Name" value="DS1302_WEEK_DAYS_MAX"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
+  <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aa4abbe23379f8f3297c98310f299e1e4"><param name="Name" value="DS1302_WEEKDAY_MAX"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html"><param name="Name" value="ds1302.c"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22"><param name="Name" value="DS1302_Write"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546"><param name="Name" value="DS1302_Write"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#af00589de389722b98e1880b304d2225b"><param name="Name" value="ds1302.c"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
@@ -198,7 +214,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a1138b8982fd2a70d2111e1436a0cf02b"><param name="Name" value="DS1302_Init"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a2928227cab007176769a905f48c35694"><param name="Name" value="DS1302_Init"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
@@ -290,7 +306,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aec1e6f0ee677dc893f4262efcbb35b37"><param name="Name" value="DS1302_setTime"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a478d02e71ebd102a33cffbff5715e4da"><param name="Name" value="DS1302_setTime"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
@@ -334,17 +350,19 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a0028874508f9272544bbeba530fd5d22"><param name="Name" value="DS1302_Write"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ae72549c356107ac1a4865ab7c966a546"><param name="Name" value="DS1302_Write"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html"><param name="Name" value="ds1302.h"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#afcd5935aeb05c1becafdcac569fca887"><param name="Name" value="DS1302_YEAR"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aa6c59c83614cd998e575ade171d3bc08"><param name="Name" value="ds1302.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ab46aba7a094e0d50ac0cc28f3c1d3cdc"><param name="Name" value="DS1302_12H"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ae2df54938a413b41450572e45b92679c"><param name="Name" value="DS1302_12H_FORMAT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ab3cd38202bbb66eaaa72e370aa933d0c"><param name="Name" value="DS1302_24H_FORMAT"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ab467c4bdb853e3a6a94a268b8e0eb2bb"><param name="Name" value="DS1302_AM"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5bdf4dbb0b7445a4c898b62af03d47ae"><param name="Name" value="ds1302_AMPM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2d3bba0ce70a3b9a7952f0363326db67"><param name="Name" value="ds1302_AMPM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4038a042f95425d0719cadd92251d5fe"><param name="Name" value="DS1302_AMPM_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ad490265c5363824ecb1604e6116f92a1"><param name="Name" value="DS1302_APR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a711b3eaa9756dd8397b0174bbdb8aa67"><param name="Name" value="DS1302_AUG"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aa2749b985e180acfc5e6e03a2221ec9f"><param name="Name" value="DS1302_BCD2BIN"></OBJECT>
@@ -379,7 +397,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a461f5a4ef0072f91b6976d2c81e66c3a"><param name="Name" value="amPm"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#ac7f367f8a4c4959b88931b387d56552a"><param name="Name" value="amPm"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <UL>
@@ -391,7 +409,7 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a6855d630ea02a9ce6b13151a2afecd78"><param name="Name" value="month"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a5d4cfc3ff0dbb20ce9fbedd78a1440b4"><param name="Name" value="month"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <UL>
@@ -403,20 +421,20 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a9cdc090bb7969969cba1cf43184bc49e"><param name="Name" value="weekday"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a46690e4c4ca6db72dbb54c21d70a96bb"><param name="Name" value="weekday"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a57ca98d8f6d4baf0fe41c583c7dcb0d5"><param name="Name" value="ds1302_datatime_s"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a13cbb674fd28382a07104bbcde7be054"><param name="Name" value="ds1302_datatime_t"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a8c51f80745c231dabbb9c56962e71fe2"><param name="Name" value="DS1302_DATE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#af5a4b10b440fb22044fd6adeecece8fa"><param name="Name" value="DS1302_DAY"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a56dc6ddaeb29531cf3a627988879113b"><param name="Name" value="ds1302_days"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ada4d37191a001e3653d765360fd093bd"><param name="Name" value="ds1302_days"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#adc63f50272f6bffb836ad27bcef30408"><param name="Name" value="DS1302_DIC"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a55d076800b2ca899830e54a71f9dba6b"><param name="Name" value="DS1302_EMPTY"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a670c0962667adafeab5e391b00ba11f0"><param name="Name" value="DS1302_ENABLE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254"><param name="Name" value="ds1302_errors_t"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a0718763ab26e5cfdfb142b59991db7c7"><param name="Name" value="DS1302_FEB"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aa56a5ff15b1c7fd4970ddba1381cd1d7"><param name="Name" value="DS1302_FRIDAY"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c"><param name="Name" value="ds1302_getDelay"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#adc0a7594b4d3e4247df4aa7ee91bfbae"><param name="Name" value="ds1302_getDelay"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__gpio__cfg__s.html"><param name="Name" value="ds1302_gpio_cfg_s"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__gpio__cfg__s.html"><param name="Name" value="ds1302_gpio_cfg_s"></OBJECT>
   <UL>
@@ -426,15 +444,16 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a55c9569f75f89a5cf8d9730b740afe8f"><param name="Name" value="ds1302_gpio_cfg_t"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a540387ea849a95bff39aa220ed43ff9e"><param name="Name" value="DS1302_HOUR_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a905c404f6982992c4b72f59fa9071cb3"><param name="Name" value="DS1302_HOURS"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a1138b8982fd2a70d2111e1436a0cf02b"><param name="Name" value="DS1302_Init"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2928227cab007176769a905f48c35694"><param name="Name" value="DS1302_Init"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a1138b8982fd2a70d2111e1436a0cf02b"><param name="Name" value="ds1302.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2928227cab007176769a905f48c35694"><param name="Name" value="ds1302.c"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a1138b8982fd2a70d2111e1436a0cf02b"><param name="Name" value="DS1302_Init"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a2928227cab007176769a905f48c35694"><param name="Name" value="DS1302_Init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a014c2e126ff2e729ff2fd617e2a82937"><param name="Name" value="DS1302_INSTRUCTION_CYCLES"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#acc06f2b4e89bda2a0abbd512645f939e"><param name="Name" value="DS1302_JAN"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a0ae44581ccf31b5c265c85535b474814"><param name="Name" value="DS1302_JUL"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a48efbeb947e1ea042fc9b8aaf67fdbf8"><param name="Name" value="DS1302_JUN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="md__r_e_a_d_m_e.html"><param name="Name" value="DS1302_LIBRARY_STM32_SPI"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a73cd47329f6014a4313b8b481985801c"><param name="Name" value="DS1302_MAR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a53bb99ea0054be86c265f275bcbe405b"><param name="Name" value="DS1302_MAY"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5b755fe51b20371b940f076da4e9b68c"><param name="Name" value="DS1302_MILENIUM"></OBJECT>
@@ -444,7 +463,8 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ab635d746c304fac46521b6d05d2aa130"><param name="Name" value="DS1302_MONTH"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aaf360b7c441a927484e3242748af65f9"><param name="Name" value="DS1302_MONTH_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ac7b6a9aee395db15207bcc42cf0f8608"><param name="Name" value="DS1302_MONTHDAY_MAX"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4e1f9a9848b02d61b185339d9a11ef3b"><param name="Name" value="ds1302_months"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a87732e0829e6e42f23ad8515736b76e1"><param name="Name" value="ds1302_months"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a794cc4fa0606a41a4e0a85eb154a1dbc"><param name="Name" value="DS1302_MONTHS_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a40e88a4ab752fc7563c0bbb23911e227a01c0b0c6306601c9e25f1fa922259906"><param name="Name" value="DS1302_NOK"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a888f584e1f060e5e782d26496129eb4a"><param name="Name" value="DS1302_NOV"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a46dbca91858138a3e673aa6d64ece976"><param name="Name" value="DS1302_OCT"></OBJECT>
@@ -455,13 +475,13 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aa23b7d2fdfa99e68c50faa12bd1bce58"><param name="Name" value="DS1302_RAM_BURST_WRITE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a13960399ec01b63e62c59de93f1e8892"><param name="Name" value="DS1302_RAMEND"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a3bdb6e399195762ce1f38521e72ca3b1"><param name="Name" value="DS1302_RAMSTART"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578"><param name="Name" value="ds1302_Read1Byte"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2"><param name="Name" value="ds1302_Read1Byte"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a7a889df004633b201ebb9724797d65bd"><param name="Name" value="DS1302_Read"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a7a889df004633b201ebb9724797d65bd"><param name="Name" value="ds1302.c"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a7a889df004633b201ebb9724797d65bd"><param name="Name" value="DS1302_Read"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4"><param name="Name" value="ds1302_ReadNBytes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75"><param name="Name" value="ds1302_ReadNBytes"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__s.html"><param name="Name" value="ds1302_s"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__s.html"><param name="Name" value="ds1302_s"></OBJECT>
   <UL>
@@ -472,11 +492,11 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a0dc40e4b598de287bdf1792528800cf5"><param name="Name" value="DS1302_SECONDS"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a8894c16088c7dfd9958466199e476b9a"><param name="Name" value="DS1302_SECONDS_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a5d23e44ef186db7c2269c0102d364536"><param name="Name" value="DS1302_SEP"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aec1e6f0ee677dc893f4262efcbb35b37"><param name="Name" value="DS1302_setTime"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a478d02e71ebd102a33cffbff5715e4da"><param name="Name" value="DS1302_setTime"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aec1e6f0ee677dc893f4262efcbb35b37"><param name="Name" value="ds1302.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a478d02e71ebd102a33cffbff5715e4da"><param name="Name" value="ds1302.c"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aec1e6f0ee677dc893f4262efcbb35b37"><param name="Name" value="DS1302_setTime"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a478d02e71ebd102a33cffbff5715e4da"><param name="Name" value="DS1302_setTime"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ae36171839b9e97f504b16b90706a1af5"><param name="Name" value="DS1302_SUNDAY"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175"><param name="Name" value="ds1302_T"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a98ec243566fc62e906e6e3878373a58b"><param name="Name" value="DS1302_THURSDAY"></OBJECT>
@@ -491,12 +511,13 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a95d46c855f903e1bde6043dc1bd6ecd9"><param name="Name" value="DS1302_updateDateTime"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aef6f185f973f0cb68a08d03ded74c0bf"><param name="Name" value="DS1302_WEDNESDAY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a91b84bc22e83e9017a47409d121aca8f"><param name="Name" value="DS1302_WEEK_DAYS_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#aa4abbe23379f8f3297c98310f299e1e4"><param name="Name" value="DS1302_WEEKDAY_MAX"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22"><param name="Name" value="DS1302_Write"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546"><param name="Name" value="DS1302_Write"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22"><param name="Name" value="ds1302.c"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546"><param name="Name" value="ds1302.c"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#a0028874508f9272544bbeba530fd5d22"><param name="Name" value="DS1302_Write"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#ae72549c356107ac1a4865ab7c966a546"><param name="Name" value="DS1302_Write"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#afcd5935aeb05c1becafdcac569fca887"><param name="Name" value="DS1302_YEAR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8c.html#af00589de389722b98e1880b304d2225b"><param name="Name" value="DS1302_YEAR_MAX"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#a7fd46995127b76221454444af6cd0baf"><param name="Name" value="Hour"></OBJECT>
@@ -504,7 +525,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__gpio__cfg__s.html#a3c57e068ccdb93ba8257fb9de7b86bad"><param name="Name" value="McuPort"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a7acca8be0094a19be6e308ac05924c4f"><param name="Name" value="minutes"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#a4f6a76a2cc605f07b83fd32dc8a486aa"><param name="Name" value="Minutes"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a6855d630ea02a9ce6b13151a2afecd78"><param name="Name" value="month"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a5d4cfc3ff0dbb20ce9fbedd78a1440b4"><param name="Name" value="month"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#a478e411f1c12a0856867595e8a8247bc"><param name="Name" value="Month"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a186f3b62987bed0c9af312eb73aaf550"><param name="Name" value="monthday"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#abba728b296bb8f3364c145bd08c49848"><param name="Name" value="MonthDay"></OBJECT>
@@ -549,7 +570,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__data__s.html#a7972d1a25e6248db05122857e2a3f5f1"><param name="Name" value="send"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="ds1302_8h.html#aa6c59c83614cd998e575ade171d3bc08"><param name="Name" value="SPANISH_LANGUAGE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__cfg__s.html#a06909907ded69cbc00db1f401a90f8ee"><param name="Name" value="spi"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a9cdc090bb7969969cba1cf43184bc49e"><param name="Name" value="weekday"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a46690e4c4ca6db72dbb54c21d70a96bb"><param name="Name" value="weekday"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#a662f0f49e8c9dd76f2dc472eff5643a8"><param name="Name" value="Weekday"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structrtc___t.html#a867c739519bfec0fd0eb090c7cb22075"><param name="Name" value="WriteProct"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="structds1302__datatime__s.html#a57ca98d8f6d4baf0fe41c583c7dcb0d5"><param name="Name" value="year"></OBJECT>

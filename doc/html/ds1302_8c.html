@@ -49,17 +49,17 @@ $(function() {
 
 <p>Source code file for DS1302.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;string.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="ds1302_8h_source.html">ds1302.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="ds1302_8h_source.html">ds1302.h</a>&gt;</code><br />
+<code>#include &quot;string.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ds1302.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ds1302_8c__incl.png" border="0" usemap="#ds1302_8c" alt=""/></div>
 <map name="ds1302_8c" id="ds1302_8c">
-<area shape="rect" title="Source code file for DS1302." alt="" coords="47,5,122,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" href="ds1302_8h.html" title="Header file for DS1302 component." alt="" coords="95,80,170,107"/>
-<area shape="rect" title=" " alt="" coords="73,155,192,181"/>
+<area shape="rect" title="Source code file for DS1302." alt="" coords="74,5,149,32"/>
+<area shape="rect" href="ds1302_8h.html" title="Header file for DS1302 component." alt="" coords="27,80,102,107"/>
+<area shape="rect" title=" " alt="" coords="127,80,192,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,124,181"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -85,6 +85,14 @@ Macros</h2></td></tr>
 <tr class="separator:a5b755fe51b20371b940f076da4e9b68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a014c2e126ff2e729ff2fd617e2a82937"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a014c2e126ff2e729ff2fd617e2a82937">DS1302_INSTRUCTION_CYCLES</a>&#160;&#160;&#160;(2U)</td></tr>
 <tr class="separator:a014c2e126ff2e729ff2fd617e2a82937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46aba7a094e0d50ac0cc28f3c1d3cdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#ab46aba7a094e0d50ac0cc28f3c1d3cdc">DS1302_12H</a>&#160;&#160;&#160;(12U)</td></tr>
+<tr class="separator:ab46aba7a094e0d50ac0cc28f3c1d3cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b84bc22e83e9017a47409d121aca8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a91b84bc22e83e9017a47409d121aca8f">DS1302_WEEK_DAYS_MAX</a>&#160;&#160;&#160;(8U)</td></tr>
+<tr class="separator:a91b84bc22e83e9017a47409d121aca8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794cc4fa0606a41a4e0a85eb154a1dbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a794cc4fa0606a41a4e0a85eb154a1dbc">DS1302_MONTHS_MAX</a>&#160;&#160;&#160;(13U)</td></tr>
+<tr class="separator:a794cc4fa0606a41a4e0a85eb154a1dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4038a042f95425d0719cadd92251d5fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a4038a042f95425d0719cadd92251d5fe">DS1302_AMPM_MAX</a>&#160;&#160;&#160;(2U)</td></tr>
+<tr class="separator:a4038a042f95425d0719cadd92251d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2749b985e180acfc5e6e03a2221ec9f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#aa2749b985e180acfc5e6e03a2221ec9f">DS1302_BCD2BIN</a>(h,  l)&#160;&#160;&#160;(((h)*10) + (l))</td></tr>
 <tr class="separator:aa2749b985e180acfc5e6e03a2221ec9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab23635e3374ddeba93f26d0014d11aa1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#ab23635e3374ddeba93f26d0014d11aa1">DS1302_BIN2BCD_H</a>(x)&#160;&#160;&#160;((x)/10)</td></tr>
@@ -98,39 +106,39 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a95113997684e8dd46f445562e4ffecc4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4">ds1302_ReadNBytes</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout)</td></tr>
-<tr class="memdesc:a95113997684e8dd46f445562e4ffecc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads multiple bytes on SPI 3-wire.  <a href="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4">More...</a><br /></td></tr>
-<tr class="separator:a95113997684e8dd46f445562e4ffecc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f781d84730ea179d5b21a6002ca7578"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578">ds1302_Read1Byte</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t *val)</td></tr>
-<tr class="memdesc:a2f781d84730ea179d5b21a6002ca7578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a Byte from the SPI bus.  <a href="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578">More...</a><br /></td></tr>
-<tr class="separator:a2f781d84730ea179d5b21a6002ca7578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb65947b61b1e7e05551fd6f0f17ae7c"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c">ds1302_getDelay</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302)</td></tr>
-<tr class="memdesc:adb65947b61b1e7e05551fd6f0f17ae7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate a delay in ticks of system frequency.  <a href="ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c">More...</a><br /></td></tr>
-<tr class="separator:adb65947b61b1e7e05551fd6f0f17ae7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1138b8982fd2a70d2111e1436a0cf02b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a1138b8982fd2a70d2111e1436a0cf02b">DS1302_Init</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, <a class="el" href="ds1302_8h.html#a8a3fba418c1ba52b54f41d6e16b5dfc4">ds1302_cfg_T</a> *config)</td></tr>
-<tr class="memdesc:a1138b8982fd2a70d2111e1436a0cf02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the DS1302.  <a href="ds1302_8c.html#a1138b8982fd2a70d2111e1436a0cf02b">More...</a><br /></td></tr>
-<tr class="separator:a1138b8982fd2a70d2111e1436a0cf02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0028874508f9272544bbeba530fd5d22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22">DS1302_Write</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t *data, uint8_t size)</td></tr>
-<tr class="memdesc:a0028874508f9272544bbeba530fd5d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a valid command into the driver .  <a href="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22">More...</a><br /></td></tr>
-<tr class="separator:a0028874508f9272544bbeba530fd5d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c28c407422aaabd8709aedc531a9a75"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75">ds1302_ReadNBytes</a> (const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout)</td></tr>
+<tr class="memdesc:a5c28c407422aaabd8709aedc531a9a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads multiple bytes on SPI 3-wire.  <a href="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75">More...</a><br /></td></tr>
+<tr class="separator:a5c28c407422aaabd8709aedc531a9a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc0a6514fd6ebe33f37ab1949c3c3b2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2">ds1302_Read1Byte</a> (const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t *val)</td></tr>
+<tr class="memdesc:a4bc0a6514fd6ebe33f37ab1949c3c3b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a Byte from the SPI bus.  <a href="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2">More...</a><br /></td></tr>
+<tr class="separator:a4bc0a6514fd6ebe33f37ab1949c3c3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0a7594b4d3e4247df4aa7ee91bfbae"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#adc0a7594b4d3e4247df4aa7ee91bfbae">ds1302_getDelay</a> (const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302)</td></tr>
+<tr class="memdesc:adc0a7594b4d3e4247df4aa7ee91bfbae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate a delay in ticks of system frequency.  <a href="ds1302_8c.html#adc0a7594b4d3e4247df4aa7ee91bfbae">More...</a><br /></td></tr>
+<tr class="separator:adc0a7594b4d3e4247df4aa7ee91bfbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2928227cab007176769a905f48c35694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a2928227cab007176769a905f48c35694">DS1302_Init</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, const <a class="el" href="ds1302_8h.html#a8a3fba418c1ba52b54f41d6e16b5dfc4">ds1302_cfg_T</a> *config)</td></tr>
+<tr class="memdesc:a2928227cab007176769a905f48c35694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the DS1302 Driver.  <a href="ds1302_8c.html#a2928227cab007176769a905f48c35694">More...</a><br /></td></tr>
+<tr class="separator:a2928227cab007176769a905f48c35694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72549c356107ac1a4865ab7c966a546"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546">DS1302_Write</a> (const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, const uint8_t *data, uint8_t size)</td></tr>
+<tr class="memdesc:ae72549c356107ac1a4865ab7c966a546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a valid command into the driver .  <a href="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546">More...</a><br /></td></tr>
+<tr class="separator:ae72549c356107ac1a4865ab7c966a546"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a889df004633b201ebb9724797d65bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a7a889df004633b201ebb9724797d65bd">DS1302_Read</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t RegisterAddr, uint8_t *ptr, uint8_t nbytes)</td></tr>
 <tr class="memdesc:a7a889df004633b201ebb9724797d65bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from a register.  <a href="ds1302_8c.html#a7a889df004633b201ebb9724797d65bd">More...</a><br /></td></tr>
 <tr class="separator:a7a889df004633b201ebb9724797d65bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec1e6f0ee677dc893f4262efcbb35b37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#aec1e6f0ee677dc893f4262efcbb35b37">DS1302_setTime</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t dayofweek, uint8_t dayofmonth, uint8_t month, int year)</td></tr>
-<tr class="memdesc:aec1e6f0ee677dc893f4262efcbb35b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date-time into the DS1302 chip.  <a href="ds1302_8c.html#aec1e6f0ee677dc893f4262efcbb35b37">More...</a><br /></td></tr>
-<tr class="separator:aec1e6f0ee677dc893f4262efcbb35b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478d02e71ebd102a33cffbff5715e4da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a478d02e71ebd102a33cffbff5715e4da">DS1302_setTime</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302, const uint8_t hformat, const uint8_t hours, const uint8_t minutes, const uint8_t seconds, const uint8_t ampm, const uint8_t dayofweek, const uint8_t dayofmonth, const uint8_t month, const int year)</td></tr>
+<tr class="memdesc:a478d02e71ebd102a33cffbff5715e4da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date-time into the DS1302 chip.  <a href="ds1302_8c.html#a478d02e71ebd102a33cffbff5715e4da">More...</a><br /></td></tr>
+<tr class="separator:a478d02e71ebd102a33cffbff5715e4da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95d46c855f903e1bde6043dc1bd6ecd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a95d46c855f903e1bde6043dc1bd6ecd9">DS1302_updateDateTime</a> (<a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *ds1302)</td></tr>
 <tr class="memdesc:a95d46c855f903e1bde6043dc1bd6ecd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the date and time of the DS1302 driver.  <a href="ds1302_8c.html#a95d46c855f903e1bde6043dc1bd6ecd9">More...</a><br /></td></tr>
 <tr class="separator:a95d46c855f903e1bde6043dc1bd6ecd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a56dc6ddaeb29531cf3a627988879113b"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a56dc6ddaeb29531cf3a627988879113b">ds1302_days</a> [] ={<a class="el" href="ds1302_8h.html#ae36171839b9e97f504b16b90706a1af5">DS1302_SUNDAY</a>, <a class="el" href="ds1302_8h.html#ad0484412372130618ea3b65a8e14b418">DS1302_MONDAY</a>, <a class="el" href="ds1302_8h.html#a81565e780dfa2a66ddbb0101837f5f9b">DS1302_TUESDAY</a>, <a class="el" href="ds1302_8h.html#aef6f185f973f0cb68a08d03ded74c0bf">DS1302_WEDNESDAY</a>, <a class="el" href="ds1302_8h.html#a98ec243566fc62e906e6e3878373a58b">DS1302_THURSDAY</a>, <a class="el" href="ds1302_8h.html#aa56a5ff15b1c7fd4970ddba1381cd1d7">DS1302_FRIDAY</a>, <a class="el" href="ds1302_8h.html#a2a11f7d9dcfcf0e848afbd8b40dc98ad">DS1302_SATURDAY</a>}</td></tr>
-<tr class="separator:a56dc6ddaeb29531cf3a627988879113b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e1f9a9848b02d61b185339d9a11ef3b"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a4e1f9a9848b02d61b185339d9a11ef3b">ds1302_months</a> [] ={<a class="el" href="ds1302_8h.html#acc06f2b4e89bda2a0abbd512645f939e">DS1302_JAN</a>, <a class="el" href="ds1302_8h.html#a0718763ab26e5cfdfb142b59991db7c7">DS1302_FEB</a>, <a class="el" href="ds1302_8h.html#a73cd47329f6014a4313b8b481985801c">DS1302_MAR</a>, <a class="el" href="ds1302_8h.html#ad490265c5363824ecb1604e6116f92a1">DS1302_APR</a>, <a class="el" href="ds1302_8h.html#a53bb99ea0054be86c265f275bcbe405b">DS1302_MAY</a>, <a class="el" href="ds1302_8h.html#a48efbeb947e1ea042fc9b8aaf67fdbf8">DS1302_JUN</a>, <a class="el" href="ds1302_8h.html#a0ae44581ccf31b5c265c85535b474814">DS1302_JUL</a>, <a class="el" href="ds1302_8h.html#a711b3eaa9756dd8397b0174bbdb8aa67">DS1302_AUG</a>, <a class="el" href="ds1302_8h.html#a5d23e44ef186db7c2269c0102d364536">DS1302_SEP</a>, <a class="el" href="ds1302_8h.html#a46dbca91858138a3e673aa6d64ece976">DS1302_OCT</a>, <a class="el" href="ds1302_8h.html#a888f584e1f060e5e782d26496129eb4a">DS1302_NOV</a>, <a class="el" href="ds1302_8h.html#adc63f50272f6bffb836ad27bcef30408">DS1302_DIC</a>}</td></tr>
-<tr class="separator:a4e1f9a9848b02d61b185339d9a11ef3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bdf4dbb0b7445a4c898b62af03d47ae"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a5bdf4dbb0b7445a4c898b62af03d47ae">ds1302_AMPM</a> [] ={<a class="el" href="ds1302_8h.html#ab467c4bdb853e3a6a94a268b8e0eb2bb">DS1302_AM</a>, <a class="el" href="ds1302_8h.html#a226594e446cc6fad2c2acdda07c40ec3">DS1302_PM</a>}</td></tr>
-<tr class="separator:a5bdf4dbb0b7445a4c898b62af03d47ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4d37191a001e3653d765360fd093bd"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#ada4d37191a001e3653d765360fd093bd">ds1302_days</a> [<a class="el" href="ds1302_8c.html#a91b84bc22e83e9017a47409d121aca8f">DS1302_WEEK_DAYS_MAX</a>] = {<a class="el" href="ds1302_8h.html#a3e90ad907edf0a85bb9acdabf2adbee1">DS1302_UNKNOWN</a>, <a class="el" href="ds1302_8h.html#ae36171839b9e97f504b16b90706a1af5">DS1302_SUNDAY</a>, <a class="el" href="ds1302_8h.html#ad0484412372130618ea3b65a8e14b418">DS1302_MONDAY</a>, <a class="el" href="ds1302_8h.html#a81565e780dfa2a66ddbb0101837f5f9b">DS1302_TUESDAY</a>, <a class="el" href="ds1302_8h.html#aef6f185f973f0cb68a08d03ded74c0bf">DS1302_WEDNESDAY</a>, <a class="el" href="ds1302_8h.html#a98ec243566fc62e906e6e3878373a58b">DS1302_THURSDAY</a>, <a class="el" href="ds1302_8h.html#aa56a5ff15b1c7fd4970ddba1381cd1d7">DS1302_FRIDAY</a>, <a class="el" href="ds1302_8h.html#a2a11f7d9dcfcf0e848afbd8b40dc98ad">DS1302_SATURDAY</a>}</td></tr>
+<tr class="separator:ada4d37191a001e3653d765360fd093bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87732e0829e6e42f23ad8515736b76e1"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a87732e0829e6e42f23ad8515736b76e1">ds1302_months</a> [<a class="el" href="ds1302_8c.html#a794cc4fa0606a41a4e0a85eb154a1dbc">DS1302_MONTHS_MAX</a>] = {<a class="el" href="ds1302_8h.html#a3e90ad907edf0a85bb9acdabf2adbee1">DS1302_UNKNOWN</a>, <a class="el" href="ds1302_8h.html#acc06f2b4e89bda2a0abbd512645f939e">DS1302_JAN</a>, <a class="el" href="ds1302_8h.html#a0718763ab26e5cfdfb142b59991db7c7">DS1302_FEB</a>, <a class="el" href="ds1302_8h.html#a73cd47329f6014a4313b8b481985801c">DS1302_MAR</a>, <a class="el" href="ds1302_8h.html#ad490265c5363824ecb1604e6116f92a1">DS1302_APR</a>, <a class="el" href="ds1302_8h.html#a53bb99ea0054be86c265f275bcbe405b">DS1302_MAY</a>, <a class="el" href="ds1302_8h.html#a48efbeb947e1ea042fc9b8aaf67fdbf8">DS1302_JUN</a>, <a class="el" href="ds1302_8h.html#a0ae44581ccf31b5c265c85535b474814">DS1302_JUL</a>, <a class="el" href="ds1302_8h.html#a711b3eaa9756dd8397b0174bbdb8aa67">DS1302_AUG</a>, <a class="el" href="ds1302_8h.html#a5d23e44ef186db7c2269c0102d364536">DS1302_SEP</a>, <a class="el" href="ds1302_8h.html#a46dbca91858138a3e673aa6d64ece976">DS1302_OCT</a>, <a class="el" href="ds1302_8h.html#a888f584e1f060e5e782d26496129eb4a">DS1302_NOV</a>, <a class="el" href="ds1302_8h.html#adc63f50272f6bffb836ad27bcef30408">DS1302_DIC</a>}</td></tr>
+<tr class="separator:a87732e0829e6e42f23ad8515736b76e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3bba0ce70a3b9a7952f0363326db67"><td class="memItemLeft" align="right" valign="top">static char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ds1302_8c.html#a2d3bba0ce70a3b9a7952f0363326db67">ds1302_AMPM</a> [<a class="el" href="ds1302_8c.html#a4038a042f95425d0719cadd92251d5fe">DS1302_AMPM_MAX</a>] = {<a class="el" href="ds1302_8h.html#ab467c4bdb853e3a6a94a268b8e0eb2bb">DS1302_AM</a>, <a class="el" href="ds1302_8h.html#a226594e446cc6fad2c2acdda07c40ec3">DS1302_PM</a>}</td></tr>
+<tr class="separator:a2d3bba0ce70a3b9a7952f0363326db67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Source code file for DS1302. </p>
@@ -193,6 +201,34 @@ Variables</h2></td></tr>
 <div class="line">                                             SET_BIT((__HANDLE__)-&gt;Instance-&gt;CR1, SPI_CR1_BIDIMODE | SPI_CR1_BIDIOE);\</div>
 <div class="line">                                             }<span class="keywordflow">while</span>(0);</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="ab46aba7a094e0d50ac0cc28f3c1d3cdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46aba7a094e0d50ac0cc28f3c1d3cdc">&#9670;&nbsp;</a></span>DS1302_12H</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS1302_12H&#160;&#160;&#160;(12U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4038a042f95425d0719cadd92251d5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4038a042f95425d0719cadd92251d5fe">&#9670;&nbsp;</a></span>DS1302_AMPM_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS1302_AMPM_MAX&#160;&#160;&#160;(2U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a id="aa2749b985e180acfc5e6e03a2221ec9f"></a>
@@ -357,6 +393,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a794cc4fa0606a41a4e0a85eb154a1dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794cc4fa0606a41a4e0a85eb154a1dbc">&#9670;&nbsp;</a></span>DS1302_MONTHS_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS1302_MONTHS_MAX&#160;&#160;&#160;(13U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8894c16088c7dfd9958466199e476b9a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8894c16088c7dfd9958466199e476b9a">&#9670;&nbsp;</a></span>DS1302_SECONDS_MAX</h2>
 
@@ -365,6 +415,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define DS1302_SECONDS_MAX&#160;&#160;&#160;(59U)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91b84bc22e83e9017a47409d121aca8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91b84bc22e83e9017a47409d121aca8f">&#9670;&nbsp;</a></span>DS1302_WEEK_DAYS_MAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DS1302_WEEK_DAYS_MAX&#160;&#160;&#160;(8U)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -400,8 +464,8 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="adb65947b61b1e7e05551fd6f0f17ae7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb65947b61b1e7e05551fd6f0f17ae7c">&#9670;&nbsp;</a></span>ds1302_getDelay()</h2>
+<a id="adc0a7594b4d3e4247df4aa7ee91bfbae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0a7594b4d3e4247df4aa7ee91bfbae">&#9670;&nbsp;</a></span>ds1302_getDelay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,7 +476,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">static uint32_t ds1302_getDelay </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
           <td class="paramname"><em>ds1302</em></td><td>)</td>
           <td></td>
         </tr>
@@ -440,8 +504,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1138b8982fd2a70d2111e1436a0cf02b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1138b8982fd2a70d2111e1436a0cf02b">&#9670;&nbsp;</a></span>DS1302_Init()</h2>
+<a id="a2928227cab007176769a905f48c35694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2928227cab007176769a905f48c35694">&#9670;&nbsp;</a></span>DS1302_Init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -455,7 +519,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ds1302_8h.html#a8a3fba418c1ba52b54f41d6e16b5dfc4">ds1302_cfg_T</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ds1302_8h.html#a8a3fba418c1ba52b54f41d6e16b5dfc4">ds1302_cfg_T</a> *&#160;</td>
           <td class="paramname"><em>config</em>&#160;</td>
         </tr>
         <tr>
@@ -466,28 +530,28 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize the DS1302. </p>
+<p>Initialize the DS1302 Driver. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ds1302</td><td>The DS1302 object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">config</td><td>The configuration to be applied. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ds1302</td><td>The Ds1302 object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">config</td><td>The configuration to be applied into the selected DS1302 object. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">ds1302_errors_t</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="ds1302_8c_a1138b8982fd2a70d2111e1436a0cf02b_cgraph.png" border="0" usemap="#ds1302_8c_a1138b8982fd2a70d2111e1436a0cf02b_cgraph" alt=""/></div>
-<map name="ds1302_8c_a1138b8982fd2a70d2111e1436a0cf02b_cgraph" id="ds1302_8c_a1138b8982fd2a70d2111e1436a0cf02b_cgraph">
-<area shape="rect" title="Initialize the DS1302." alt="" coords="5,31,99,57"/>
-<area shape="rect" href="ds1302_8c.html#adb65947b61b1e7e05551fd6f0f17ae7c" title="Calculate a delay in ticks of system frequency." alt="" coords="147,5,269,32"/>
-<area shape="rect" href="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22" title="Write a valid command into the driver ." alt="" coords="155,56,261,83"/>
+<div class="center"><img src="ds1302_8c_a2928227cab007176769a905f48c35694_cgraph.png" border="0" usemap="#ds1302_8c_a2928227cab007176769a905f48c35694_cgraph" alt=""/></div>
+<map name="ds1302_8c_a2928227cab007176769a905f48c35694_cgraph" id="ds1302_8c_a2928227cab007176769a905f48c35694_cgraph">
+<area shape="rect" title="Initialize the DS1302 Driver." alt="" coords="5,31,99,57"/>
+<area shape="rect" href="ds1302_8c.html#adc0a7594b4d3e4247df4aa7ee91bfbae" title="Calculate a delay in ticks of system frequency." alt="" coords="147,5,269,32"/>
+<area shape="rect" href="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546" title="Write a valid command into the driver ." alt="" coords="155,56,261,83"/>
 </map>
 </div>
 
@@ -553,15 +617,15 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="ds1302_8c_a7a889df004633b201ebb9724797d65bd_cgraph.png" border="0" usemap="#ds1302_8c_a7a889df004633b201ebb9724797d65bd_cgraph" alt=""/></div>
 <map name="ds1302_8c_a7a889df004633b201ebb9724797d65bd_cgraph" id="ds1302_8c_a7a889df004633b201ebb9724797d65bd_cgraph">
 <area shape="rect" title="Read from a register." alt="" coords="5,31,111,57"/>
-<area shape="rect" href="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578" title="Receives a Byte from the SPI bus." alt="" coords="163,5,298,32"/>
-<area shape="rect" href="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="159,56,303,83"/>
+<area shape="rect" href="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2" title="Receives a Byte from the SPI bus." alt="" coords="163,5,298,32"/>
+<area shape="rect" href="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="159,56,303,83"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a2f781d84730ea179d5b21a6002ca7578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f781d84730ea179d5b21a6002ca7578">&#9670;&nbsp;</a></span>ds1302_Read1Byte()</h2>
+<a id="a4bc0a6514fd6ebe33f37ab1949c3c3b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc0a6514fd6ebe33f37ab1949c3c3b2">&#9670;&nbsp;</a></span>ds1302_Read1Byte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -572,7 +636,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a> ds1302_Read1Byte </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
           <td class="paramname"><em>ds1302</em>, </td>
         </tr>
         <tr>
@@ -598,7 +662,7 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ds1302</td><td>Ds1302 object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>the received value though SPI port. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">val</td><td>the received value though SPI port. </td></tr>
   </table>
   </dd>
 </dl>
@@ -611,8 +675,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a95113997684e8dd46f445562e4ffecc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95113997684e8dd46f445562e4ffecc4">&#9670;&nbsp;</a></span>ds1302_ReadNBytes()</h2>
+<a id="a5c28c407422aaabd8709aedc531a9a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c28c407422aaabd8709aedc531a9a75">&#9670;&nbsp;</a></span>ds1302_ReadNBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -623,7 +687,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">static <a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a> ds1302_ReadNBytes </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
           <td class="paramname"><em>ds1302</em>, </td>
         </tr>
         <tr>
@@ -676,8 +740,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aec1e6f0ee677dc893f4262efcbb35b37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec1e6f0ee677dc893f4262efcbb35b37">&#9670;&nbsp;</a></span>DS1302_setTime()</h2>
+<a id="a478d02e71ebd102a33cffbff5715e4da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478d02e71ebd102a33cffbff5715e4da">&#9670;&nbsp;</a></span>DS1302_setTime()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -691,43 +755,55 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>seconds</em>, </td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>hformat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>minutes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>hours</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>minutes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>seconds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>ampm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>dayofweek</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>dayofmonth</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype">const uint8_t&#160;</td>
           <td class="paramname"><em>month</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>year</em>&#160;</td>
         </tr>
         <tr>
@@ -742,9 +818,11 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ds1302</td><td>The DS1302 object. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>Number of seconds to set into the driver. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">minutes</td><td>Number of minutes to set into the driver. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hformat</td><td>Hour format. Set 0 for 24H format. Set 1 for 12h format. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">hours</td><td>Number of hours to set into the driver. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">minutes</td><td>Number of minutes to set into the driver. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">seconds</td><td>Number of seconds to set into the driver. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ampm</td><td>In case of 12h format : 0 = AM, 1 = PM. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dayofweek</td><td>: Day of week to set into the driver. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dayofmonth</td><td>Day of month to set into the driver. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">month</td><td>Month to set into the driver. </td></tr>
@@ -754,17 +832,17 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">ds1302_errors_t</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="ds1302_8c_aec1e6f0ee677dc893f4262efcbb35b37_cgraph.png" border="0" usemap="#ds1302_8c_aec1e6f0ee677dc893f4262efcbb35b37_cgraph" alt=""/></div>
-<map name="ds1302_8c_aec1e6f0ee677dc893f4262efcbb35b37_cgraph" id="ds1302_8c_aec1e6f0ee677dc893f4262efcbb35b37_cgraph">
+<div class="center"><img src="ds1302_8c_a478d02e71ebd102a33cffbff5715e4da_cgraph.png" border="0" usemap="#ds1302_8c_a478d02e71ebd102a33cffbff5715e4da_cgraph" alt=""/></div>
+<map name="ds1302_8c_a478d02e71ebd102a33cffbff5715e4da_cgraph" id="ds1302_8c_a478d02e71ebd102a33cffbff5715e4da_cgraph">
 <area shape="rect" title="Set the date&#45;time into the DS1302 chip." alt="" coords="5,5,128,32"/>
-<area shape="rect" href="ds1302_8c.html#a0028874508f9272544bbeba530fd5d22" title="Write a valid command into the driver ." alt="" coords="176,5,281,32"/>
+<area shape="rect" href="ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546" title="Write a valid command into the driver ." alt="" coords="176,5,281,32"/>
 </map>
 </div>
 
@@ -795,7 +873,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">ds1302_errors_t</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -806,15 +884,15 @@ Here is the call graph for this function:</div>
 <map name="ds1302_8c_a95d46c855f903e1bde6043dc1bd6ecd9_cgraph" id="ds1302_8c_a95d46c855f903e1bde6043dc1bd6ecd9_cgraph">
 <area shape="rect" title="Update the date and time of the DS1302 driver." alt="" coords="5,31,176,57"/>
 <area shape="rect" href="ds1302_8c.html#a7a889df004633b201ebb9724797d65bd" title="Read from a register." alt="" coords="224,31,329,57"/>
-<area shape="rect" href="ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578" title="Receives a Byte from the SPI bus." alt="" coords="382,5,517,32"/>
-<area shape="rect" href="ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="377,56,521,83"/>
+<area shape="rect" href="ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2" title="Receives a Byte from the SPI bus." alt="" coords="382,5,517,32"/>
+<area shape="rect" href="ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="377,56,521,83"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a0028874508f9272544bbeba530fd5d22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0028874508f9272544bbeba530fd5d22">&#9670;&nbsp;</a></span>DS1302_Write()</h2>
+<a id="ae72549c356107ac1a4865ab7c966a546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72549c356107ac1a4865ab7c966a546">&#9670;&nbsp;</a></span>DS1302_Write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -822,13 +900,13 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname"><a class="el" href="ds1302_8h.html#a22aedeede11f1e6f41900cc1c2de8254">ds1302_errors_t</a> DS1302_Write </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ds1302_8h.html#a1bc617e540c202891bebb28f89d81175">ds1302_T</a> *&#160;</td>
           <td class="paramname"><em>ds1302</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
@@ -856,7 +934,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">ds1302_errors_t</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -864,8 +942,8 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a5bdf4dbb0b7445a4c898b62af03d47ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bdf4dbb0b7445a4c898b62af03d47ae">&#9670;&nbsp;</a></span>ds1302_AMPM</h2>
+<a id="a2d3bba0ce70a3b9a7952f0363326db67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3bba0ce70a3b9a7952f0363326db67">&#9670;&nbsp;</a></span>ds1302_AMPM</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -874,7 +952,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char const* ds1302_AMPM[] ={<a class="el" href="ds1302_8h.html#ab467c4bdb853e3a6a94a268b8e0eb2bb">DS1302_AM</a>, <a class="el" href="ds1302_8h.html#a226594e446cc6fad2c2acdda07c40ec3">DS1302_PM</a>}</td>
+          <td class="memname">char const* ds1302_AMPM[<a class="el" href="ds1302_8c.html#a4038a042f95425d0719cadd92251d5fe">DS1302_AMPM_MAX</a>] = {<a class="el" href="ds1302_8h.html#ab467c4bdb853e3a6a94a268b8e0eb2bb">DS1302_AM</a>, <a class="el" href="ds1302_8h.html#a226594e446cc6fad2c2acdda07c40ec3">DS1302_PM</a>}</td>
         </tr>
       </table>
   </td>
@@ -886,8 +964,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a56dc6ddaeb29531cf3a627988879113b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56dc6ddaeb29531cf3a627988879113b">&#9670;&nbsp;</a></span>ds1302_days</h2>
+<a id="ada4d37191a001e3653d765360fd093bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4d37191a001e3653d765360fd093bd">&#9670;&nbsp;</a></span>ds1302_days</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -896,7 +974,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char const* ds1302_days[] ={<a class="el" href="ds1302_8h.html#ae36171839b9e97f504b16b90706a1af5">DS1302_SUNDAY</a>, <a class="el" href="ds1302_8h.html#ad0484412372130618ea3b65a8e14b418">DS1302_MONDAY</a>, <a class="el" href="ds1302_8h.html#a81565e780dfa2a66ddbb0101837f5f9b">DS1302_TUESDAY</a>, <a class="el" href="ds1302_8h.html#aef6f185f973f0cb68a08d03ded74c0bf">DS1302_WEDNESDAY</a>, <a class="el" href="ds1302_8h.html#a98ec243566fc62e906e6e3878373a58b">DS1302_THURSDAY</a>, <a class="el" href="ds1302_8h.html#aa56a5ff15b1c7fd4970ddba1381cd1d7">DS1302_FRIDAY</a>, <a class="el" href="ds1302_8h.html#a2a11f7d9dcfcf0e848afbd8b40dc98ad">DS1302_SATURDAY</a>}</td>
+          <td class="memname">char const* ds1302_days[<a class="el" href="ds1302_8c.html#a91b84bc22e83e9017a47409d121aca8f">DS1302_WEEK_DAYS_MAX</a>] = {<a class="el" href="ds1302_8h.html#a3e90ad907edf0a85bb9acdabf2adbee1">DS1302_UNKNOWN</a>, <a class="el" href="ds1302_8h.html#ae36171839b9e97f504b16b90706a1af5">DS1302_SUNDAY</a>, <a class="el" href="ds1302_8h.html#ad0484412372130618ea3b65a8e14b418">DS1302_MONDAY</a>, <a class="el" href="ds1302_8h.html#a81565e780dfa2a66ddbb0101837f5f9b">DS1302_TUESDAY</a>, <a class="el" href="ds1302_8h.html#aef6f185f973f0cb68a08d03ded74c0bf">DS1302_WEDNESDAY</a>, <a class="el" href="ds1302_8h.html#a98ec243566fc62e906e6e3878373a58b">DS1302_THURSDAY</a>, <a class="el" href="ds1302_8h.html#aa56a5ff15b1c7fd4970ddba1381cd1d7">DS1302_FRIDAY</a>, <a class="el" href="ds1302_8h.html#a2a11f7d9dcfcf0e848afbd8b40dc98ad">DS1302_SATURDAY</a>}</td>
         </tr>
       </table>
   </td>
@@ -908,8 +986,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a4e1f9a9848b02d61b185339d9a11ef3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e1f9a9848b02d61b185339d9a11ef3b">&#9670;&nbsp;</a></span>ds1302_months</h2>
+<a id="a87732e0829e6e42f23ad8515736b76e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87732e0829e6e42f23ad8515736b76e1">&#9670;&nbsp;</a></span>ds1302_months</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -918,7 +996,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">char const* ds1302_months[] ={<a class="el" href="ds1302_8h.html#acc06f2b4e89bda2a0abbd512645f939e">DS1302_JAN</a>, <a class="el" href="ds1302_8h.html#a0718763ab26e5cfdfb142b59991db7c7">DS1302_FEB</a>, <a class="el" href="ds1302_8h.html#a73cd47329f6014a4313b8b481985801c">DS1302_MAR</a>, <a class="el" href="ds1302_8h.html#ad490265c5363824ecb1604e6116f92a1">DS1302_APR</a>, <a class="el" href="ds1302_8h.html#a53bb99ea0054be86c265f275bcbe405b">DS1302_MAY</a>, <a class="el" href="ds1302_8h.html#a48efbeb947e1ea042fc9b8aaf67fdbf8">DS1302_JUN</a>, <a class="el" href="ds1302_8h.html#a0ae44581ccf31b5c265c85535b474814">DS1302_JUL</a>, <a class="el" href="ds1302_8h.html#a711b3eaa9756dd8397b0174bbdb8aa67">DS1302_AUG</a>, <a class="el" href="ds1302_8h.html#a5d23e44ef186db7c2269c0102d364536">DS1302_SEP</a>, <a class="el" href="ds1302_8h.html#a46dbca91858138a3e673aa6d64ece976">DS1302_OCT</a>, <a class="el" href="ds1302_8h.html#a888f584e1f060e5e782d26496129eb4a">DS1302_NOV</a>, <a class="el" href="ds1302_8h.html#adc63f50272f6bffb836ad27bcef30408">DS1302_DIC</a>}</td>
+          <td class="memname">char const* ds1302_months[<a class="el" href="ds1302_8c.html#a794cc4fa0606a41a4e0a85eb154a1dbc">DS1302_MONTHS_MAX</a>] = {<a class="el" href="ds1302_8h.html#a3e90ad907edf0a85bb9acdabf2adbee1">DS1302_UNKNOWN</a>, <a class="el" href="ds1302_8h.html#acc06f2b4e89bda2a0abbd512645f939e">DS1302_JAN</a>, <a class="el" href="ds1302_8h.html#a0718763ab26e5cfdfb142b59991db7c7">DS1302_FEB</a>, <a class="el" href="ds1302_8h.html#a73cd47329f6014a4313b8b481985801c">DS1302_MAR</a>, <a class="el" href="ds1302_8h.html#ad490265c5363824ecb1604e6116f92a1">DS1302_APR</a>, <a class="el" href="ds1302_8h.html#a53bb99ea0054be86c265f275bcbe405b">DS1302_MAY</a>, <a class="el" href="ds1302_8h.html#a48efbeb947e1ea042fc9b8aaf67fdbf8">DS1302_JUN</a>, <a class="el" href="ds1302_8h.html#a0ae44581ccf31b5c265c85535b474814">DS1302_JUL</a>, <a class="el" href="ds1302_8h.html#a711b3eaa9756dd8397b0174bbdb8aa67">DS1302_AUG</a>, <a class="el" href="ds1302_8h.html#a5d23e44ef186db7c2269c0102d364536">DS1302_SEP</a>, <a class="el" href="ds1302_8h.html#a46dbca91858138a3e673aa6d64ece976">DS1302_OCT</a>, <a class="el" href="ds1302_8h.html#a888f584e1f060e5e782d26496129eb4a">DS1302_NOV</a>, <a class="el" href="ds1302_8h.html#adc63f50272f6bffb836ad27bcef30408">DS1302_DIC</a>}</td>
         </tr>
       </table>
   </td>

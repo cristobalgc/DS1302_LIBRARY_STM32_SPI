@@ -1,6 +1,6 @@
 <map id="DS1302_updateDateTime" name="DS1302_updateDateTime">
 <area shape="rect" id="node1" title="Update the date and time of the DS1302 driver." alt="" coords="5,31,176,57"/>
 <area shape="rect" id="node2" href="$ds1302_8c.html#a7a889df004633b201ebb9724797d65bd" title="Read from a register." alt="" coords="224,31,329,57"/>
-<area shape="rect" id="node3" href="$ds1302_8c.html#a2f781d84730ea179d5b21a6002ca7578" title="Receives a Byte from the SPI bus." alt="" coords="382,5,517,32"/>
-<area shape="rect" id="node4" href="$ds1302_8c.html#a95113997684e8dd46f445562e4ffecc4" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="377,56,521,83"/>
+<area shape="rect" id="node3" href="$ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2" title="Receives a Byte from the SPI bus." alt="" coords="382,5,517,32"/>
+<area shape="rect" id="node4" href="$ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="377,56,521,83"/>
 </map>

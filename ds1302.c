@@ -51,6 +51,10 @@
 #define DS1302_BURST_MAX_BYTES		(8U)
 #define DS1302_MILENIUM				(2000U)
 #define DS1302_INSTRUCTION_CYCLES	(2U)
+#define DS1302_12H					(12U)
+#define DS1302_WEEK_DAYS_MAX		(8U)
+#define DS1302_MONTHS_MAX			(13U)
+#define DS1302_AMPM_MAX				(2U)
 /******************************************************************************/
 /*                  Definition of local function like macros                  */
 /******************************************************************************/
@@ -83,11 +87,11 @@
 /*                     Definition of local constant data                      */
 /******************************************************************************/
 /* Days of a week */
-static char const *ds1302_days[]={DS1302_SUNDAY, DS1302_MONDAY, DS1302_TUESDAY, DS1302_WEDNESDAY, DS1302_THURSDAY, DS1302_FRIDAY, DS1302_SATURDAY};
+static char const *ds1302_days[DS1302_WEEK_DAYS_MAX] = {DS1302_UNKNOWN, DS1302_SUNDAY, DS1302_MONDAY, DS1302_TUESDAY, DS1302_WEDNESDAY, DS1302_THURSDAY, DS1302_FRIDAY, DS1302_SATURDAY};
 /* Months of a year */
-static char const *ds1302_months[]={DS1302_JAN, DS1302_FEB, DS1302_MAR, DS1302_APR, DS1302_MAY, DS1302_JUN, DS1302_JUL, DS1302_AUG, DS1302_SEP, DS1302_OCT, DS1302_NOV, DS1302_DIC};
+static char const *ds1302_months[DS1302_MONTHS_MAX] = {DS1302_UNKNOWN, DS1302_JAN, DS1302_FEB, DS1302_MAR, DS1302_APR, DS1302_MAY, DS1302_JUN, DS1302_JUL, DS1302_AUG, DS1302_SEP, DS1302_OCT, DS1302_NOV, DS1302_DIC};
 /* AM/PM*/
-static char const *ds1302_AMPM[]={DS1302_AM, DS1302_PM};
+static char const *ds1302_AMPM[DS1302_AMPM_MAX] = {DS1302_AM, DS1302_PM};
 
 /******************************************************************************/
 /*                      Definition of exported variables                      */
@@ -108,7 +112,7 @@ static char const *ds1302_AMPM[]={DS1302_AM, DS1302_PM};
  * @param[in]  Timeout: number of expected clock cycles to read a byte.
  * @retval ds1302_errors_t
  */
-static ds1302_errors_t ds1302_ReadNBytes(ds1302_T *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout);
+static ds1302_errors_t ds1302_ReadNBytes(const ds1302_T *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout);
 
 /**
   * @brief  Receives a Byte from the SPI bus.
@@ -116,19 +120,19 @@ static ds1302_errors_t ds1302_ReadNBytes(ds1302_T *ds1302, uint8_t *val, uint16_
   * @param[in]  val: the received value though SPI port.
   * @retval ds1302_errors_t
   */
-static ds1302_errors_t ds1302_Read1Byte(ds1302_T *ds1302, uint8_t *val);
+static ds1302_errors_t ds1302_Read1Byte(const ds1302_T *ds1302, uint8_t *val);
 
 /**
   * @brief  Calculate a delay in ticks of system frequency.
   * @param[in]  ds1302: The ds1302 object.
   * @retval The delay calculated in ticks of system frequency.
   */
-static uint32_t ds1302_getDelay(ds1302_T *ds1302);
+static uint32_t ds1302_getDelay(const ds1302_T *ds1302);
 
 /******************************************************************************/
 /*                       Definition of local functions                        */
 /******************************************************************************/
-static ds1302_errors_t ds1302_Read1Byte(ds1302_T *ds1302, uint8_t *val)
+static ds1302_errors_t ds1302_Read1Byte(const ds1302_T *ds1302, uint8_t *val)
 {
 	uint16_t delay = 0u;
 	ds1302_errors_t errorcode = DS1302_OK;
@@ -157,7 +161,7 @@ static ds1302_errors_t ds1302_Read1Byte(ds1302_T *ds1302, uint8_t *val)
 }
 
 
-static ds1302_errors_t ds1302_ReadNBytes(ds1302_T *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout)
+static ds1302_errors_t ds1302_ReadNBytes(const ds1302_T *ds1302, uint8_t *val, uint16_t nBytesToRead, uint32_t Timeout)
 {
 	uint16_t delay = 0U;
 	uint32_t tickstart;
@@ -220,7 +224,7 @@ error:
 return errorcode;
 }
 
-static uint32_t ds1302_getDelay(ds1302_T *ds1302){
+static uint32_t ds1302_getDelay(const ds1302_T *ds1302){
 	uint32_t HCLK_Frequency = 0U;
 	uint32_t timeSpiTransferBitns = 0U;
 	uint32_t execTimens = 0U;
@@ -269,7 +273,7 @@ static uint32_t ds1302_getDelay(ds1302_T *ds1302){
 /******************************************************************************/
 /*                      Definition of exported functions                      */
 /******************************************************************************/
-ds1302_errors_t DS1302_Init(ds1302_T *ds1302, ds1302_cfg_T *config){
+ds1302_errors_t DS1302_Init(ds1302_T *ds1302, const ds1302_cfg_T *config){
 	uint16_t i;
 	ds1302_errors_t error = DS1302_OK;
 	/* Write protect command (disable) */
@@ -294,7 +298,7 @@ ds1302_errors_t DS1302_Init(ds1302_T *ds1302, ds1302_cfg_T *config){
 	return error;
 }
 
-ds1302_errors_t DS1302_Write(ds1302_T *ds1302, uint8_t *data, uint8_t size){
+ds1302_errors_t DS1302_Write(const ds1302_T *ds1302, const uint8_t *data, uint8_t size){
 	ds1302_errors_t error;
 	HAL_GPIO_WritePin(ds1302->cfg.RstPin.McuPort, ds1302->cfg.RstPin.Pinreset, GPIO_PIN_SET);
 	error = HAL_SPI_Transmit(ds1302->cfg.spi,data, size, DS1302_TIMEOUT_MAX);
@@ -322,8 +326,9 @@ ds1302_errors_t DS1302_Read(ds1302_T *ds1302, uint8_t RegisterAddr, uint8_t *ptr
 	return error;
 }
 
-ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t dayofweek,
-		uint8_t dayofmonth, uint8_t month, int year)  {
+ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, const uint8_t hformat, const uint8_t hours, const uint8_t minutes,
+		const uint8_t seconds, const uint8_t ampm , const uint8_t dayofweek, const uint8_t dayofmonth, const uint8_t month,
+		const int year){
 	uint8_t arraysend[9];
 	ds1302_errors_t error;
 	arraysend[0] = DS1302_CLOCK_BURST_WRITE;
@@ -340,9 +345,16 @@ ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t minute
 		ds1302->data.send.Minutes.b.Minutes10 = DS1302_BIN2BCD_H(minutes);
 		ds1302->data.send.Minutes.b.Minutes = DS1302_BIN2BCD_L(minutes);
 
-		ds1302->data.send.Hour.h24.b.Hour10 = DS1302_BIN2BCD_H(hours);
-		ds1302->data.send.Hour.h24.b.Hour = DS1302_BIN2BCD_L(hours);
-		ds1302->data.send.Hour.h24.b.hour_12_24 = 0U;// 0 for 24 hour format
+		if((hformat) && (hours <= DS1302_12H)){
+			ds1302->data.send.Hour.h12.b.Hour10 = DS1302_BIN2BCD_H(hours);
+			ds1302->data.send.Hour.h12.b.Hour = DS1302_BIN2BCD_L(hours);
+			ds1302->data.send.Hour.h12.b.AM_PM = ampm;
+			ds1302->data.send.Hour.h12.b.hour_12_24 = DS1302_12H_FORMAT;
+		} else {
+			ds1302->data.send.Hour.h24.b.Hour10 = DS1302_BIN2BCD_H(hours);
+			ds1302->data.send.Hour.h24.b.Hour = DS1302_BIN2BCD_L(hours);
+			ds1302->data.send.Hour.h24.b.hour_12_24 = DS1302_24H_FORMAT; // 0 for 24 hour format
+		}
 
 		ds1302->data.send.MonthDay.b.MonthDay10 = DS1302_BIN2BCD_H(dayofmonth);
 		ds1302->data.send.MonthDay.b.MonthDay = DS1302_BIN2BCD_L(dayofmonth);

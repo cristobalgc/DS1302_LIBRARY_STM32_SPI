@@ -217,8 +217,8 @@ typedef struct {
 
 typedef struct ds1302_gpio_cfg_s
 {
-	  GPIO_TypeDef *McuPort;
-	  uint16_t Pinreset;
+	  GPIO_TypeDef *McuPort; /**< The selected Port for the CE signal, it can be GPIOA, GPIOB...*/
+	  uint16_t Pinreset; /**< The GPIO pin into the port for the CE signal, it can be GPIO_PIN_4, GPIO_PIN_5...*/
 }ds1302_gpio_cfg_t;
 
 
@@ -232,9 +232,9 @@ typedef struct ds1302_datatime_s{
 	uint8_t hours;
 	uint8_t minutes;
 	uint8_t monthday;
-	char * month;
-	char *weekday;
-	char *amPm;
+	const char * month;
+	const char *weekday;
+	const char *amPm;
 	uint16_t year;
 }ds1302_datatime_t;
 
@@ -262,37 +262,41 @@ typedef struct ds1302_s{
 /******************************************************************************/
 
 /**
-  * @brief  Initialize the DS1302.
-  * @param[in]  ds1302: The DS1302 object.
-  * @param[in]  config: The configuration to be applied.
-  * @retval   None
+  * @brief  Initialize the DS1302 Driver.
+  * @param[in]  ds1302: The Ds1302 object.
+  * @param[in]  config: The configuration to be applied into the selected DS1302 object.
+  * @retval   ds1302_errors_t
+  *
  */
-extern ds1302_errors_t DS1302_Init(ds1302_T *ds1302, ds1302_cfg_T *config);
+extern ds1302_errors_t DS1302_Init(ds1302_T *ds1302, const ds1302_cfg_T *config);
 
 /**
   * @brief  Write a valid command into the driver .
   * @param[in]  ds1302: The DS1302 object.
   * @param[in]  data: Data to be written
   * @param[in]  size: Data size.
-  * @retval   None
+  * @retval   ds1302_errors_t
+  *
  */
-extern ds1302_errors_t DS1302_Write(ds1302_T *ds1302, uint8_t *data, uint8_t size);
+extern ds1302_errors_t DS1302_Write(const ds1302_T *ds1302, const uint8_t *data, uint8_t size);
 
 /**
   * @brief  Set the date-time into the DS1302 chip.
   * @param[in]  ds1302: The DS1302 object.
-  * @param[in]  seconds: Number of seconds to set into the driver.
-  * @param[in]  minutes: Number of minutes to set into the driver.
+  * @param[in]  hformat: Hour format. Set 0 for 24H format. Set 1 for 12h format.
   * @param[in]  hours: Number of hours to set into the driver.
+  * @param[in]  minutes: Number of minutes to set into the driver.
+  * @param[in]  seconds: Number of seconds to set into the driver.
+  * @param[in]  ampm: In case of 12h format : 0 = AM, 1 = PM.
   * @param[in]  dayofweek : Day of week to set into the driver.
   * @param[in]  dayofmonth: Day of month to set into the driver.
   * @param[in]  month: Month to set into the driver.
   * @param[in]  year: Year to set into the driver.
-  * @retval   None
+  * @retval   ds1302_errors_t
  */
-extern ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t minutes, uint8_t hours, uint8_t dayofweek,
-		uint8_t dayofmonth, uint8_t month, int year);
-		
+extern ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, const uint8_t hformat, const uint8_t hours, const uint8_t minutes,
+		const uint8_t seconds, const uint8_t ampm , const uint8_t dayofweek, const uint8_t dayofmonth, const uint8_t month,
+		const int year);
 /**
   * @brief  Read from a register
   * @param[in]  ds1302: The DS1302 object.
@@ -302,14 +306,11 @@ extern ds1302_errors_t DS1302_setTime(ds1302_T *ds1302, uint8_t seconds, uint8_t
   * @retval   None
  */
 extern ds1302_errors_t DS1302_Read(ds1302_T *ds1302, uint8_t RegisterAddr, uint8_t *ptr, uint8_t nbytes);
-
 /**
   * @brief  Update the date and time of the DS1302 driver.
   * @param[in]  ds1302: The DS1302 object.
-  * @retval   None
+  * @retval   ds1302_errors_t
  */
 extern ds1302_errors_t DS1302_updateDateTime(ds1302_T *ds1302);
 
-
 #endif /* SW_COMPONENT */
-
