@@ -1,0 +1,231 @@
+\documentclass[10pt,a4paper,oneside]{article}
+\include{Formato}
+%--------------------------------------------------------------------------------------------------
+\begin{document}
+
+% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\begin{center} 
+\includegraphics[scale=0.4]{Imagenes/PCB_Brain_circuit.png} 
+\end{center}
+
+\large
+
+\vspace{3cm}
+
+\begin{center}
+{\setlength\arrayrulewidth{2pt}
+\begin{tabular}{r|p{9.8cm}}
+\arrayrulecolor{udc}
+\colorbox{udc}{\textcolor{white}{\bf TÍTULO}}      
+&	LIBRERIA PARA MANEJO DE DS1302 USANDO SPI EN MODO HALF DUPLEX PARA STM32  \\[2cm]
+%\colorbox{udc}{\textcolor{white}{\bf GRADO}}       & Dual en Ingeñaría Eléctrica    \\[1cm]
+\colorbox{udc}{\textcolor{white}{\bf AMBITO}}       & Ingenería Electrónica  \\[1cm]
+\colorbox{udc}{\textcolor{white}{ }}  &   \\[2cm]
+\colorbox{udc}{\textcolor{white}{\bf AUTOR}}  &	García Camoira Cristóbal  \\[2cm]
+%                                                  &	Apellido1 Apellido 2, Nombres  \\[2cm]
+\colorbox{udc}{\textcolor{white}{FECHA}}       &	Febrero de 2022
+\end{tabular}}
+\end{center}
+\normalsize
+% FIN DE LA PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -----------------------------------------------------------------------------------------------------------------------------------
+\cleardoublepage
+
+% Índice de contenidos
+\pagestyle{plain}
+\renewcommand{\contentsname}{Índice}
+{\hypersetup{hidelinks}\tableofcontents}
+
+\cleardoublepage
+
+% Página que contiene el índice de listas de figuras
+\phantomsection
+\renewcommand*\listfigurename{Listado de figuras}
+\addcontentsline{toc}{section}{\listfigurename}
+{\hypersetup{hidelinks}\listoffigures}
+\addtocontents{lof}{\protect\thispagestyle{plain}}
+
+% Página que contiene el índice de listas de tablas
+%\cleardoublepage
+\phantomsection
+\renewcommand*\listtablename{Listado de tablas}
+\addcontentsline{toc}{section}{\listtablename}
+{\hypersetup{hidelinks}\listoftables}
+\addtocontents{lot}{\protect\thispagestyle{plain}}
+
+
+% Página que contiene el índice de listados de programación
+\renewcommand\lstlistlistingname{Listado de códigos de programación}
+\renewcommand\lstlistingname{Código}
+%\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{\lstlistlistingname}
+{\hypersetup{hidelinks}\lstlistoflistings}
+{\protect\thispagestyle{plain}}
+
+% Final del índice -----------------------------------------------------------------------------------------------------------------------------------
+
+\cleardoublepage %-----------------------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+
+\addcontentsline{toc}{section}{Introducción}%--------------------------------------------------------------------------------
+\section*{Introducción}
+
+El presente proyecto tiene como objetivo la realización de una librería de funciones para el manejo del chip DS1302 , un reloj en tiempo real, usando una característica que poseen los microcontroladores de de STM microelectronics de 32 bits, concretamente la familia de STM32F103, mediante la cual el SPI puede usar solo 3pines para la transferencia de información, modo half duplex, donde tendremos las siguientes salidas:
+\begin{itemize}
+	\item MOSI: Señal de datos, también llamada I/O, durante la escritura, la el pin del microcontrolador estará configurado como salida, y durante la lectura se comportara como entrada, este pin es bidireccional.  
+	\item CLK: Señal de reloj
+	\item CE: Chip enable
+\end{itemize}
+  
+\section*{Conexión}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/DS1302_MCU_CONECTION.png}
+\caption[Vista de las pistas de la cara delantera de la PCB tras el proceso de insolado]{Pistas PCB cara delantera}
+\label{fig:001}
+\end{figure}
+
+\vspace{0.5cm}
+
+\section{Configuración}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \includegraphics[width=0.2\textwidth]{Imagenes/SW4STM32.png}
+\end{wrapfigure}
+
+Para la configuración del software del dispositivo se han usado dos entornos de desarrollo, el primero es in IDE llamado System Workbench, este IDE, basado en eclipse integra todo lo necesario para poder programar microcontroladores de la familia STM32, incluido el compilador y sin ningún tipo de limite, es gratuito. Este se puede descargar del siguiente enlace aunque para ello primero debemos registrarnos en su pagina web \url{https://www.openstm32.org/HomePage}.
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \centering
+    \includegraphics[width=0.2\textwidth]{Imagenes/STM32CubeMX.png}
+\end{wrapfigure}
+
+La segunda tool que necesitaremos es el STM CUBE MX, una tool que nos ofrece de forma gratuita el fabricante ST y que nos permite descargarnos las capas de abstracción de software especificas para nuestro dispositivo, lo que se denomina como HAL, en ingles, hardware abstraction layer, que, dependiendo del microcontrolador que vayamos a usar necesitaremos descargarnos una u otra. Esta tool nos permite la confuguracion del dispositivo para luego generar el código y crear el proyecto de eclipse en System workbench. Al igual que para la obtención del IDE de programación va a ser necesario registrarse para obtener este software \url{https://www.st.com/en/development-tools/stm32cubemx.html#overview}
+
+También necesitaremos los drivers para poder usar el programador y debugger stlinkV2, en la web esta disponible para mac, windows y liux \url{https://www.st.com/en/development-tools/st-link-v2.html#tools-software} 
+
+\subsection{STM CUBE MX}%------------------------------------------------------------------------------------------------------
+Normalmente en la mayoría de proyectos solemos intentar que nuestro sistema vaya a la mayor velocidad posible, por ello trataremos de que nuestro sistema sea capaz de ejecutar las instrucciones lo mas rápido posible, para ello configuraremos la frecuencia del sistema a 72Mhz, que es la máxima que se puede alcanzar para este caso en concreto, dado que estamos hablando del STM32F103C8T6.
+Para ello lo único que debemos hacer es aplicar las siguientes opciones el modo de configuración del RCC:
+
+\begin{enumerate}
+	\item Habilitar el HSE con la opción Crystal/ceramic resonator.Para ello es necesario disponer de un cristal de cuarzo de 8MHz conectado de forma externa, que , de serie ya incluye la placa de evaluación denominada "`Blue pill"'    
+	\item Habilitar el LSE con la opción Crystal/ceramic resonator. Esta opción es recomendable aunque no necesaria, ésta habilita el cristal externo de 32khz para usar el RTC interno que dispone el microcontrolador. Si se requiere usar el TRC interno esta opciones indispensable.  
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Clock_CFG2.png}
+\caption[Configuración de la frecuencia del sistema]{ }
+\label{fig:002}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Clock_CFG1.png}
+\caption[Configuración de la frecuencia del sistema]{ }
+\label{fig:003}
+\end{figure}
+
+Otra cosa muy importante es configurar un timer cada medio segundo, de esta forma nos aseguraremos de no perder ningún cambio en la variable de los segundos, una vez que salte el timer, se consultara al driver la fecha y la hora y se actualizaran las variables internas.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/TIMER3_CFG1.png}
+\caption[Configuración de timer3 cada 500ms]{Configuración de timer3 cada 500ms}
+\label{fig:004}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/TIMER3_CFG2.png}
+\caption[Configuración de timer3 cada 500ms]{Configuración de timer3 cada 500ms}
+\label{fig:005}
+\end{figure}
+
+Por supuesto, para flashear nuestro código en la placa necesitaremos configurar en nuestro sistema el modo JTAG 4 pin , de esta forma permitiremos el uso del STLINK V2 para el flashing /debug de nuestro código.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/JTAG_CFG.png}
+\caption[Configuración del JTAG para el uso del STLINK-V2]{Configuración del JTAG para el uso del STLINK-V2}
+\label{fig:006}
+\end{figure}
+
+El método mas sencillo para conocer que nuestro dispositivo esta funcionado correctamente es poder visualizar los valores que el dispositivo DS1302 le envía a nuestro microcontrolador, por ello se ha decidido usar un UART.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Usart_cfg1.jpg}
+\caption[Configuración del periférico USART para la visualización de los datos a través de un monitor serie]{Configuración del periférico USART para la visualización de los datos a través de un monitor serie}
+\label{fig:007}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Usart_cfg2.jpg}
+\caption[Configuración del periférico USART para la visualización de los datos a través de un monitor serie]{Configuración del periférico USART para la visualización de los datos a través de un monitor serie}
+\label{fig:008}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Usart_cfg3.jpg}
+\caption[Configuración del periférico USART para la visualización de los datos a través de un monitor serie]{Configuración del periférico USART para la visualización de los datos a través de un monitor serie}
+\label{fig:009}
+\end{figure}
+
+Aunque no es muy recomendable esta practica, dentro de la interrupción del timer usaremos la función serie para imprimir la hora que nos va devolviendo el periférico Ds1302 cada medio segundo, para ello es necesario reconfigurar las interrupciones y darle mayor prioridad a la del timer3, de esta forma nunca habrá conflicto sobre cual interrupción se ejecutara antes en caso de recibir peticiones simultaneas.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Nvic_cfg1.jpg}
+\caption[Añadiendo prioridades a las interrupciones]{Añadiendo prioridades a las interrupciones}
+\label{fig:010}
+\end{figure}
+
+Para el correcto uso del DS1302, necesitaremos un periférico en nuestro microcontrolador que satisfaga las necesidades de envío y recepción de los mensajes necesarios para la configuración de este dispositivo. El DS1302 dispone de una entrada de habilitación activa a nivel bajo, una señal de reloj y un pin bidireccional que funciona como entrada/salida de datos. El único periférico existente en nuestro microcontrolador capaz de comportarse de esta forma es el SPI en modo HALF-duplex.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Spi_cfg1.jpg}
+\caption[Configuración del SPI en modo Half-Duplex]{Configuración del SPI en modo Half-Duplex}
+\label{fig:011}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Imagenes/Spi_cfg2.jpg}
+\caption[Configuración del SPI en modo Half-Duplex]{Configuración del SPI en modo Half-Duplex}
+\label{fig:012}
+\end{figure}
+
+Por ultimo, es necesario generar la configuración valida para el IDE que dispongamos, en nuestro caso System Workbench, para ello es necesario seleccionar la opción SW4STM32 y la versión del hal que previamente hayamos descargado.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Imagenes/Manager_Settings.jpg}
+\caption[Configuración del project manager]{Configuración del project manager}
+\label{fig:012}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Imagenes/PINOUT.png}
+\caption[Visualización del pinout]{Visualización del pinout}
+\label{fig:013}
+\end{figure}
+
+\subsection{Programación del dispositivo}%------------------------------------------------------------------------------------------------------
+
+
+\bigskip
+
+
+\end{document}

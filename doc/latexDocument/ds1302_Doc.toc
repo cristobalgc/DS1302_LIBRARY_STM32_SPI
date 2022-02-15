@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}
+\contentsline {section}{Listado de figuras}{3}{section*.1}% 
+\contentsline {section}{Listado de tablas}{3}{section*.2}% 
+\contentsline {section}{Listado de c\IeC {\'o}digos de programaci\IeC {\'o}n}{3}{section*.3}% 
+\contentsline {section}{Introducci\IeC {\'o}n}{4}{section*.3}% 
+\contentsline {section}{\numberline {1}Configuraci\IeC {\'o}n}{4}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}STM CUBE MX}{5}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Programaci\IeC {\'o}n del dispositivo}{10}{subsection.1.2}% 

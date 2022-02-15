@@ -1,8 +1,0 @@
-<map id="ds1302_s" name="ds1302_s">
-<area shape="rect" id="node1" title=" " alt="" coords="99,199,177,225"/>
-<area shape="rect" id="node2" href="$structds1302__cfg__s.html" title=" " alt="" coords="21,109,124,136"/>
-<area shape="rect" id="node3" href="$structds1302__gpio__cfg__s.html" title=" " alt="" coords="5,5,140,32"/>
-<area shape="rect" id="node4" href="$structds1302__data__s.html" title=" " alt="" coords="148,109,259,136"/>
-<area shape="rect" id="node5" href="$structrtc___t.html" title=" " alt="" coords="171,5,223,32"/>
-<area shape="rect" id="node6" href="$structds1302__datatime__s.html" title=" " alt="" coords="247,5,381,32"/>
-</map>

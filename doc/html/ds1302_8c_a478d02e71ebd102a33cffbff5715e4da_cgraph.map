@@ -1,4 +1,0 @@
-<map id="DS1302_setTime" name="DS1302_setTime">
-<area shape="rect" id="node1" title="Set the date&#45;time into the DS1302 chip." alt="" coords="5,5,128,32"/>
-<area shape="rect" id="node2" href="$ds1302_8c.html#ae72549c356107ac1a4865ab7c966a546" title="Write a valid command into the driver ." alt="" coords="176,5,281,32"/>
-</map>

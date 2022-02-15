@@ -1,5 +1,0 @@
-<map id="DS1302_Read" name="DS1302_Read">
-<area shape="rect" id="node1" title="Read from a register." alt="" coords="5,31,111,57"/>
-<area shape="rect" id="node2" href="$ds1302_8c.html#a4bc0a6514fd6ebe33f37ab1949c3c3b2" title="Receives a Byte from the SPI bus." alt="" coords="163,5,298,32"/>
-<area shape="rect" id="node3" href="$ds1302_8c.html#a5c28c407422aaabd8709aedc531a9a75" title="This function reads multiple bytes on SPI 3&#45;wire." alt="" coords="159,56,303,83"/>
-</map>

@@ -322,22 +322,67 @@ extern uint8_t DS1302_getSecondsUnits(ds1302_T *ds1302);
  */
 extern uint8_t DS1302_getSecondsDec(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint8_t DS1302_getMinutesUnits(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint8_t DS1302_getMinutesDec(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint8_t DS1302_getHourUnits(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint8_t DS1302_getHourDec(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern const char* DS1302_geWeekDay(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern const char* DS1302_getAmPmStatus(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint8_t DS1302_getMonthDay(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern const char* DS1302_getMonth(ds1302_T *ds1302);
 
+/**
+  * @brief  Get the decimal part of the seconds.
+  * @param[in]  ds1302: The DS1302 object.
+  * @retval   The decimal part of the seconds number
+ */
 extern uint16_t DS1302_getYear(ds1302_T *ds1302);
 
 #endif /* SW_COMPONENT */
